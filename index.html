@@ -92,6 +92,17 @@
         .btn { padding: .5rem .75rem; border-radius: .5rem; display:inline-flex; align-items:center; gap:.5rem; border:1px solid transparent; }
         .btn-primary { background:linear-gradient(90deg,#2563eb,#3b82f6); color:white; }
         .btn-ghost { background:transparent; border-color:rgba(0,0,0,0.06); }
+        .btn { padding: .5rem .75rem; border-radius: .5rem; display:inline-flex; align-items:center; gap:.5rem; border:1px solid transparent; }
+        .btn-primary { background:linear-gradient(90deg,#2563eb,#3b82f6); color:white; }
+        .btn-ghost { background:transparent; border-color:rgba(0,0,0,0.06); }
+        @media (max-width: 1023px) {
+            .sidebar-link { font-size: 0.95rem; }
+            .animate-float { display: none; }
+        }
+        @media (max-width: 767px) {
+            .sidebar-link { padding-left: 1rem; padding-right: 1rem; }
+            .sidebar-link span { display: inline-block; }
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
@@ -135,9 +146,10 @@
     </div>
 
     <!-- APLICAÇÃO PRINCIPAL -->
-    <div id="mainApp" class="hidden min-h-screen flex relative z-10">
+    <div id="mainApp" class="hidden min-h-screen flex flex-col md:flex-row relative z-10">
+        <div id="sidebarOverlay" class="hidden fixed inset-0 bg-black/40 z-40 md:hidden" onclick="toggleSidebar()"></div>
         <!-- SIDEBAR ANGOLANA -->
-        <aside class="w-64 bg-[#0B1E33] text-white flex flex-col shadow-2xl">
+        <aside id="sidebar" class="hidden md:flex w-4/5 max-w-xs md:w-64 bg-[#0B1E33] text-white flex-col shadow-2xl md:min-h-screen z-50 fixed md:static inset-y-0 left-0 md:relative md:z-auto overflow-y-auto">
             <div class="p-5 border-b border-blue-900/50">
                 <div class="flex items-center space-x-2">
                     <i class="fas fa-landmark text-yellow-500 text-2xl"></i>
@@ -166,10 +178,13 @@
 
         <!-- MAIN CONTENT -->
         <main class="flex-1 flex flex-col overflow-hidden">
-            <header class="bg-white/80 backdrop-blur-sm border-b px-6 py-3 flex justify-between items-center shadow-sm">
-                <div><h2 id="pageTitle" class="text-xl font-bold text-gray-800">Dashboard</h2><p id="currentDate" class="text-xs text-gray-500"></p></div>
-                <div class="flex gap-3 items-center">
-                    <div class="relative"><i class="fas fa-search absolute left-3 top-2.5 text-gray-400 text-sm"></i><input type="text" id="globalSearch" placeholder="Pesquisar livro ou estudante..." class="pl-9 pr-3 py-1.5 border rounded-full text-sm w-64 focus:ring-1 focus:ring-blue-400"></div>
+            <header class="bg-white/80 backdrop-blur-sm border-b px-4 sm:px-6 py-3 flex flex-col sm:flex-row justify-between items-start sm:items-center shadow-sm gap-3">
+                <div class="flex items-center justify-between w-full sm:w-auto gap-3">
+                    <div><h2 id="pageTitle" class="text-xl font-bold text-gray-800">Dashboard</h2><p id="currentDate" class="text-xs text-gray-500"></p></div>
+                    <button id="sidebarToggle" onclick="toggleSidebar()" class="md:hidden bg-white/90 text-gray-700 rounded-full p-2 shadow-sm"><i class="fas fa-bars"></i></button>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto items-start sm:items-center">
+                    <div class="relative flex-1 sm:flex-none w-full sm:w-[18rem]"><i class="fas fa-search absolute left-3 top-2.5 text-gray-400 text-sm"></i><input type="text" id="globalSearch" placeholder="Pesquisar livro ou estudante..." class="pl-9 pr-3 py-2 border rounded-full text-sm w-full focus:ring-1 focus:ring-blue-400"></div>
                     <div class="relative"><i class="fas fa-bell text-gray-600 text-xl"></i><span class="absolute -top-1 -right-1 bg-red-600 text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center">3</span></div>
                 </div>
             </header>
@@ -191,7 +206,13 @@
 
                 <!-- ACERVO (LIVROS) -->
                 <section id="booksSection" class="hidden space-y-4">
-                    <div class="flex flex-wrap justify-between gap-3"><div class="flex gap-2"><select id="categoryFilter" class="border rounded-lg px-3 py-2 text-sm"><option value="">Todas Categorias</option><option>Literatura Angolana</option><option>Ficção</option><option>História</option><option>Ciência</option><option>Didáticos</option></select><select id="statusFilter" class="border rounded-lg px-3 py-2 text-sm"><option value="">Todos Status</option><option value="disponivel">Disponível</option><option value="emprestado">Emprestado</option><option value="reservado">Reservado</option></select></div><button onclick="openModal('bookModal')" class="bg-blue-600 text-white px-5 py-2 rounded-lg">+ Novo Livro</button></div>
+                    <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
+                        <div class="flex flex-col sm:flex-row flex-1 gap-2">
+                            <select id="categoryFilter" class="border rounded-lg px-3 py-2 text-sm w-full sm:w-auto"><option value="">Todas Categorias</option><option>Literatura Angolana</option><option>Ficção</option><option>História</option><option>Ciência</option><option>Didáticos</option></select>
+                            <select id="statusFilter" class="border rounded-lg px-3 py-2 text-sm w-full sm:w-auto"><option value="">Todos Status</option><option value="disponivel">Disponível</option><option value="emprestado">Emprestado</option><option value="reservado">Reservado</option></select>
+                        </div>
+                        <button onclick="openModal('bookModal')" class="bg-blue-600 text-white px-5 py-2 rounded-lg">+ Novo Livro</button>
+                    </div>
                     <div id="booksGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
                 </section>
 
@@ -199,7 +220,7 @@
                 <section id="loansSection" class="hidden"><div class="bg-white rounded-xl shadow overflow-x-auto"><table class="min-w-full"><thead class="bg-gray-100"><tr><th class="p-3 text-left">Estudante</th><th>Livro</th><th>Empréstimo</th><th>Devolução prevista</th><th>Multa (Kz)</th><th>Status</th><th>Ações</th></tr></thead><tbody id="loansTableBody"></tbody></table></div></section>
 
                 <!-- ESTUDANTES -->
-                <section id="studentsSection" class="hidden"><div class="flex justify-between mb-4"><input type="text" id="studentSearchInput" placeholder="Pesquisar por nome ou matrícula..." class="border p-2 rounded-lg w-80"><button onclick="openModal('studentModal')" class="bg-purple-600 text-white px-4 py-2 rounded-lg">+ Cadastrar Aluno</button></div><div id="studentsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div></section>
+                <section id="studentsSection" class="hidden"><div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3"><input type="text" id="studentSearchInput" placeholder="Pesquisar por nome ou matrícula..." class="border p-2 rounded-lg w-full sm:w-80"><button onclick="openModal('studentModal')" class="bg-purple-600 text-white px-4 py-2 rounded-lg">+ Cadastrar Aluno</button></div><div id="studentsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div></section>
 
                 <!-- RESERVAS -->
                 <section id="reservationsSection" class="hidden"><div id="reservationsList" class="space-y-3"></div></section>
@@ -369,6 +390,7 @@
         }
         function openModal(id) { const modal = document.getElementById(id); if(!modal) return; if(id === 'loanModal' || id === 'reservationModal'){ populateDropdowns(); } modal.classList.remove('hidden'); const focusable = modal.querySelector('select, input, button, textarea'); if(focusable) focusable.focus(); }
         function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+        function toggleSidebar() { const sidebar = document.getElementById('sidebar'); const overlay = document.getElementById('sidebarOverlay'); if(sidebar.classList.contains('hidden')){ sidebar.classList.remove('hidden'); overlay.classList.remove('hidden'); } else { sidebar.classList.add('hidden'); overlay.classList.add('hidden'); } }
 
         // Form handlers
         document.getElementById('addBookForm')?.addEventListener('submit',(e)=>{ e.preventDefault(); let newBook = { id: Date.now().toString(), titulo: document.getElementById('bookTitle').value, autor: document.getElementById('bookAuthor').value, categoria: document.getElementById('bookCategory').value, descricao: document.getElementById('bookDesc').value, status:'disponivel' }; books.push(newBook); saveToLocal(); renderAll(); closeModal('bookModal'); showToast("Livro adicionado ao acervo"); });
