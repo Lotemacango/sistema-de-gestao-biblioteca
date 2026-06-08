@@ -399,7 +399,9 @@
         // (o próprio openModal já lida com foco)
 
         // reservation flow
-        function openReservationModal(bookId){ const modal = document.getElementById('reservationModal'); if(!modal) return; modal.dataset.bookId = bookId; document.getElementById('reservationBookTitle').innerText = books.find(b=>b.id===bookId)?.titulo || 'Livro'; openModal('reservationModal'); }
+        function openReservationModal(bookId){ const modal = document.getElementById('reservationModal'); if(!modal) return; modal.dataset.bookId = bookId; document.getElementById('reservationBookTitle').innerText = books.find(b=>b.id===bookId)?.titulo || 'Livro'; // garantir selects atualizados
+            try{ populateDropdowns(); }catch(e){ console.error(e); }
+            openModal('reservationModal'); }
 
         document.getElementById('addReservationForm')?.addEventListener('submit',(e)=>{ e.preventDefault(); const studentId = document.getElementById('reservationStudentSelect').value; const bookId = document.getElementById('reservationModal').dataset.bookId; if(!studentId) return showToast('Selecione estudante', 'exclamation'); if(!bookId) return showToast('Livro não identificado', 'exclamation'); const book = books.find(b=>b.id===bookId); if(!book || book.status!=='disponivel') return showToast('Livro indisponível', 'exclamation'); // marcar reservado
             book.status='reservado'; const newRes = { id: Date.now().toString(), estudanteId: studentId, livroId: bookId, dataReserva: new Date().toISOString().slice(0,10) }; reservations.push(newRes); saveToLocal(); renderAll(); closeModal('reservationModal'); showToast('Reserva registada'); });
