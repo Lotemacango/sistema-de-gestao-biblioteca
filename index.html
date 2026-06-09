@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Biblioteca Escolar - Sistema KixiKubula | Angola</title>
+    <title>Biblioteca Escolar - Sistema  |CIV</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -120,23 +120,23 @@
                 <div class="w-20 h-20 bg-gradient-to-br from-yellow-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                     <i class="fas fa-book-reader text-3xl text-white"></i>
                 </div>
-                <h1 class="text-3xl font-bold text-gray-800">📚 KixiKubula</h1>
-                <p class="text-red-700 text-sm font-medium">Sistema de Gestão de Biblioteca - Angola</p>
+                <h1 class="text-3xl font-bold text-gray-800">📚 Biblioteca CIV</h1>
+                <p class="text-red-700 text-sm font-medium"></p>
                 <p class="text-xs text-gray-500 mt-1">Ministério da Educação | Ensino Geral</p>
             </div>
             <form id="loginForm">
                 <div class="mb-4">
                     <label class="block text-sm font-semibold text-gray-700 mb-1">E-mail institucional</label>
                     <div class="relative">
-                        <i class="fas fa-envelope absolute left-3 top-3 text-gray-400"></i>
-                        <input type="email" id="loginEmail" value="admin@kixikubula.ao" class="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <i class="fas fa-envelope absolute left-3 top-3 text-gray-400"></i><!----value="admin@kixikubula.ao"----->
+                        <input type="email" id="loginEmail"  class="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
                     </div>
                 </div>
                 <div class="mb-6">
                     <label class="block text-sm font-semibold text-gray-700 mb-1">Palavra-passe</label>
                     <div class="relative">
-                        <i class="fas fa-lock absolute left-3 top-3 text-gray-400"></i>
-                        <input type="password" id="loginPassword" value="Angola2025!" class="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <i class="fas fa-lock absolute left-3 top-3 text-gray-400"></i><!--value="Angola2025!"-------->
+                        <input type="password" id="loginPassword"  class="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
                     </div>
                 </div>
                 <button type="submit" class="w-full bg-gradient-to-r from-red-700 to-yellow-600 text-white py-3 rounded-lg font-bold hover:shadow-xl transform transition-all">Entrar no Sistema <i class="fas fa-arrow-right ml-2"></i></button>
@@ -154,8 +154,8 @@
                 <div class="flex items-center space-x-2">
                     <i class="fas fa-landmark text-yellow-500 text-2xl"></i>
                     <div>
-                        <h2 class="font-bold text-lg tracking-tight">KixiKubula</h2>
-                        <p class="text-[10px] text-blue-200">Biblioteca Escolar Angolana</p>
+                        <h2 class="font-bold text-lg tracking-tight">Biblioteca CIV </h2>
+                        <p class="text-[10px] text-blue-200">Biblioteca CIV </p>
                     </div>
                 </div>
             </div>
@@ -254,7 +254,7 @@
     <div id="toast" class="hidden fixed bottom-5 right-5 bg-gray-800 text-white px-5 py-2 rounded-lg shadow-lg z-50 flex items-center gap-2" role="status" aria-live="polite"><i class="fas fa-check-circle text-green-400"></i><span id="toastMessage">Sucesso</span></div>
 
     <script>
-        // ---------- DADOS GLOBAIS (PERSISTÊNCIA LOCALSTORAGE) ----------
+        // ---------- DADOS GLOBAIS (PERSISTÊNCIA LOCALSTORAGE)  BASE DE DADOS SIMULADA----------
         let books = [];
         let students = [];
         let loans = [];
@@ -410,7 +410,7 @@
         function escapeCsv(val){ if(val==null) return '""'; const s = String(val).replace(/"/g,'""'); return '"'+s+'"'; }
         function exportToCSV(type){ let csvRows=[]; if(type==='loans'){ csvRows.push(["Estudante","Livro","Empréstimo","Devolução","Multa"]); loans.forEach(l=>{ let s=students.find(st=>st.id===l.estudanteId); let b=books.find(bk=>bk.id===l.livroId); csvRows.push([s?.nome, b?.titulo, l.dataEmprestimo, l.dataPrevista, l.multa]); }); } else { csvRows.push(["Título","Autor","Categoria","Status"]); books.forEach(b=>csvRows.push([b.titulo,b.autor,b.categoria,b.status])); } let csvContent = csvRows.map(row=>row.map(escapeCsv).join(",")).join("\n"); let blob=new Blob([csvContent],{type:"text/csv"}); let a=document.createElement("a"); a.href=URL.createObjectURL(blob); const stamp = new Date().toISOString().slice(0,19).replace(/[:T]/g,'-'); a.download=`biblioteca_${type}_${stamp}.csv`; a.click(); showToast("Relatório exportado"); }
 
-        // modal de confirmação reutilizável
+        // modalI de confirmação reutilizável
         function showConfirm(action, id, title, message){ const modal = document.getElementById('confirmModal'); if(!modal) return; modal.dataset.action = action; modal.dataset.targetId = id; document.getElementById('confirmTitle').innerText = title || 'Confirmação'; document.getElementById('confirmMessage').innerText = message || 'Deseja prosseguir?'; openModal('confirmModal'); document.getElementById('confirmModalBtn').focus(); }
         document.getElementById('confirmModalBtn')?.addEventListener('click', ()=>{ const modal = document.getElementById('confirmModal'); const action = modal.dataset.action; const id = modal.dataset.targetId; closeModal('confirmModal'); if(action === 'deleteBook') deleteBookConfirmed(id); else if(action === 'deleteStudent') deleteStudentConfirmed(id); else if(action === 'convertReservation') convertReservationConfirmed(id); });
 
