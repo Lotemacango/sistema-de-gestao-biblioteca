@@ -2,445 +2,1821 @@
 <html lang="pt-AO">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Biblioteca Escolar - Sistema  |CIV</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=1.0">
+    <title>Biblioteca CIV | Sistema de Gestão Escolar</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ============================================================
+           BIBLIOTECA CIV - DESIGN SYSTEM PROFISSIONAL v2.2
+           Correção: Gestor padrão garantido + Responsividade total
+           ============================================================ */
+        
+        :root {
+            --red-angola: #C8102E;
+            --red-angola-dark: #A00D24;
+            --gold-angola: #FFC72C;
+            --gold-angola-dark: #E6B300;
+            --black-angola: #000000;
+            --primary: #1E40AF;
+            --primary-dark: #1E3A8A;
+            --primary-light: #DBEAFE;
+            --primary-gradient: linear-gradient(135deg, #1E40AF, #3B82F6);
+            --secondary: #7C3AED;
+            --secondary-light: #EDE9FE;
+            --success: #059669;
+            --success-light: #D1FAE5;
+            --success-gradient: linear-gradient(135deg, #059669, #10B981);
+            --warning: #D97706;
+            --warning-light: #FEF3C7;
+            --warning-gradient: linear-gradient(135deg, #D97706, #F59E0B);
+            --danger: #DC2626;
+            --danger-light: #FEE2E2;
+            --danger-gradient: linear-gradient(135deg, #DC2626, #EF4444);
+            --info: #0EA5E9;
+            --info-light: #E0F2FE;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-400: #94A3B8;
+            --gray-500: #64748B;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1E293B;
+            --gray-900: #0F172A;
+            --surface-primary: #FFFFFF;
+            --surface-secondary: #F8FAFC;
+            --surface-sidebar: #0F172A;
+            --surface-sidebar-hover: #1E293B;
+            --surface-sidebar-active: #1E3A8A;
+            --surface-overlay: rgba(0, 0, 0, 0.6);
+            --surface-glass: rgba(255, 255, 255, 0.92);
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-tertiary: #94A3B8;
+            --text-inverse: #FFFFFF;
+            --text-sidebar: #E2E8F0;
+            --text-sidebar-muted: #94A3B8;
+            --border-light: #E2E8F0;
+            --border-medium: #CBD5E1;
+            --border-focus: #3B82F6;
+            --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+            --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+            --shadow-card-hover: 0 4px 6px rgba(0,0,0,0.07), 0 10px 30px rgba(0,0,0,0.1);
+            --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --text-xs: clamp(0.625rem, 1.5vw, 0.75rem);
+            --text-sm: clamp(0.75rem, 1.8vw, 0.875rem);
+            --text-base: clamp(0.875rem, 2vw, 1rem);
+            --text-lg: clamp(1rem, 2.2vw, 1.125rem);
+            --text-xl: clamp(1.125rem, 2.5vw, 1.25rem);
+            --text-2xl: clamp(1.25rem, 3vw, 1.5rem);
+            --text-3xl: clamp(1.5rem, 4vw, 1.875rem);
+            --leading-tight: 1.25;
+            --leading-normal: 1.5;
+            --font-light: 300;
+            --font-normal: 400;
+            --font-medium: 500;
+            --font-semibold: 600;
+            --font-bold: 700;
+            --font-extrabold: 800;
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --sidebar-width: 17rem;
+            --header-height: 4rem;
+            --z-sidebar: 40;
+            --z-overlay: 30;
+            --z-header: 20;
+            --z-modal: 50;
+            --z-toast: 60;
         }
+        
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
         body {
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            background: #f0f4fa;
+            font-family: var(--font-sans);
+            background: var(--gray-50);
+            color: var(--text-primary);
+            line-height: var(--leading-normal);
+            min-height: 100vh;
+            overflow-x: hidden;
         }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(2px);
-            border: 1px solid rgba(255,255,255,0.3);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+        
+        *:focus-visible { outline: 2.5px solid var(--border-focus); outline-offset: 2px; border-radius: 4px; }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        
+        .custom-scrollbar { scrollbar-width: thin; scrollbar-color: var(--gray-300) transparent; }
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: var(--radius-full); }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
+        
+        #authScreen {
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #1E40AF 100%);
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: flex-start;      /* alterado de center para flex-start */
+    justify-content: center;
+    overflow-y: auto;             /* permite scroll na tela de fundo se necessário */
+    padding: 2rem 1rem; 
+
         }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
+
+        /* Ajuste para telas maiores, centralizar verticalmente */
+@media (min-width: 640px) {
+    #authScreen {
+        align-items: center;
+        padding: 1rem;
+    }
+}
+        
+        #authScreen::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255,199,44,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(200,16,46,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(59,130,246,0.05) 0%, transparent 70%);
+            pointer-events: none;
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #e2e8f0;
-            border-radius: 10px;
+        
+        .auth-card {
+            background: var(--surface-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: var(--shadow-2xl);
+            border-radius: var(--radius-2xl);
+            width: 100%;
+            max-width: 28rem;
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            position: relative;
+            z-index: 1;
+            animation: authCardIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+             max-height: calc(100vh - 4rem); /* altura máxima = viewport - margem de segurança */
+    overflow-y: auto;
+    /* A barra de rolagem dentro do cartão terá o estilo customizado */
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray-300) transparent;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #94a3b8;
-            border-radius: 10px;
-        }
-        .sidebar-link.active {
-            background: #1e293b;
-            color: white;
-        }
-        .sidebar-link.active i {
-            color: white !important;
-        }
-        .modal-enter {
-            animation: fadeSlideIn 0.2s ease-out;
-        }
-        @keyframes fadeSlideIn {
-            from { opacity: 0; transform: scale(0.96) translateY(-10px); }
+
+        .auth-card::-webkit-scrollbar { width: 5px; }
+.auth-card::-webkit-scrollbar-track { background: transparent; }
+.auth-card::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: var(--radius-full); }
+        
+        @keyframes authCardIn {
+            from { opacity: 0; transform: scale(0.9) translateY(30px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
-        .badge-status {
-            padding: 0.25rem 0.5rem;
-            font-size: 0.75rem;
-            border-radius: 9999px;
-            font-weight: 600;
+        
+        @supports not (backdrop-filter: blur(20px)) {
+            .auth-card { background: rgba(255,255,255,0.97); }
+        }
+        
+        .logo-container {
+            width: clamp(3.5rem, 10vw, 5rem);
+            height: clamp(3.5rem, 10vw, 5rem);
+            background: linear-gradient(135deg, var(--gold-angola), var(--red-angola));
+            border-radius: var(--radius-2xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            box-shadow: 0 8px 32px rgba(200,16,46,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-container::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border-radius: calc(var(--radius-2xl) - 3px);
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+        }
+        
+        .logo-icon {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: white;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+        
+        .auth-tab {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: var(--font-sans);
+            font-weight: var(--font-medium);
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            border-bottom: 2px solid transparent;
+            transition: all var(--transition-normal);
+            flex: 1;
+            text-align: center;
+        }
+        
+        .auth-tab:hover { color: var(--primary); background: rgba(59,130,246,0.04); }
+        
+        .auth-tab.active {
+            color: var(--primary);
+            font-weight: var(--font-semibold);
+            border-bottom-color: var(--primary);
+        }
+        
+        .input-group { margin-bottom: var(--space-4); }
+        
+        .input-group label {
+            display: block;
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+        
+        .input-wrapper { position: relative; display: flex; align-items: center; }
+        
+        .input-icon {
+            position: absolute;
+            left: var(--space-3);
+            color: var(--gray-400);
+            font-size: var(--text-sm);
+            pointer-events: none;
+            transition: color var(--transition-fast);
+            z-index: 1;
+        }
+        
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 0.625rem var(--space-4);
+            padding-left: 2.75rem;
+            border: 1.5px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-sans);
+            font-size: var(--text-sm);
+            color: var(--text-primary);
+            background: var(--surface-primary);
+            transition: all var(--transition-normal);
+            min-height: 2.75rem;
+        }
+        
+        .input-group input:focus,
+        .input-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(59,130,246,0.08);
+        }
+        
+        .toggle-password {
+            position: absolute;
+            right: var(--space-3);
+            background: none;
+            border: none;
+            color: var(--gray-400);
+            cursor: pointer;
+            padding: var(--space-1);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+            min-height: 2rem;
+            min-width: 2rem;
+        }
+        
+        .toggle-password:hover { color: var(--gray-600); background: var(--gray-100); }
+        
+        .btn-auth {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-family: var(--font-sans);
+            font-weight: var(--font-semibold);
+            font-size: var(--text-base);
+            color: var(--text-inverse);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            min-height: 3rem;
+        }
+        
+        .btn-auth-login {
+            background: linear-gradient(135deg, var(--red-angola), #E53E3E);
+            box-shadow: 0 4px 16px rgba(200,16,46,0.3);
+        }
+        
+        .btn-auth-login:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,16,46,0.4); }
+        
+        .btn-auth-register {
+            background: var(--primary-gradient);
+            box-shadow: 0 4px 16px rgba(30,64,175,0.3);
+        }
+        
+        .btn-auth-register:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(30,64,175,0.4); }
+        
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            height: 100dvh;
+            width: var(--sidebar-width);
+            background: var(--surface-sidebar);
+            z-index: var(--z-sidebar);
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid rgba(255,255,255,0.05);
+            transition: transform var(--transition-slow);
+            will-change: transform;
+            box-shadow: 4px 0 24px rgba(0,0,0,0.3);
+        }
+        
+        #sidebar.sidebar-hidden { transform: translateX(-100%); }
+        #sidebar:not(.sidebar-hidden) { transform: translateX(0); }
+        
+        @media (min-width: 1024px) {
+            #sidebar { position: sticky; transform: translateX(0); }
+            #sidebar.sidebar-hidden { transform: translateX(0); }
+        }
+        
+        .sidebar-header {
+            padding: var(--space-4) var(--space-6);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .sidebar-logo {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, var(--gold-angola), var(--red-angola));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 12px rgba(200,16,46,0.3);
+            flex-shrink: 0;
+        }
+        
+        .sidebar-brand h2 {
+            font-size: var(--text-lg);
+            font-weight: var(--font-bold);
+            color: var(--text-inverse);
+            letter-spacing: -0.02em;
+        }
+        
+        .sidebar-brand p {
+            font-size: 0.625rem;
+            color: var(--text-sidebar-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: var(--font-medium);
+        }
+        
+        .sidebar-nav {
+            flex: 1;
+            padding: var(--space-3) var(--space-4);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-1);
+            overflow-y: auto;
+        }
+        
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: 0.625rem var(--space-4);
+            border-radius: var(--radius-lg);
+            color: var(--text-sidebar);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+            transition: all var(--transition-fast);
+            cursor: pointer;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            font-family: var(--font-sans);
+            min-height: 2.75rem;
+        }
+        
+        .sidebar-link:hover { background: var(--surface-sidebar-hover); color: var(--text-inverse); }
+        
+        .sidebar-link.active {
+            background: var(--surface-sidebar-active);
+            color: var(--text-inverse);
+            font-weight: var(--font-semibold);
+            box-shadow: 0 2px 8px rgba(30,64,175,0.3);
+            position: relative;
+        }
+        
+        .sidebar-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 60%;
+            background: var(--gold-angola);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+        
+        .sidebar-link i { width: 1.25rem; text-align: center; font-size: 1rem; flex-shrink: 0; opacity: 0.8; }
+        .sidebar-link.active i { opacity: 1; color: var(--gold-angola); }
+        
+        .sidebar-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: var(--space-2) 0; }
+        
+        .sidebar-footer { padding: var(--space-4); border-top: 1px solid rgba(255,255,255,0.08); }
+        
+        .sidebar-user {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-3);
+            border-radius: var(--radius-lg);
+            background: rgba(255,255,255,0.03);
+            margin-bottom: var(--space-3);
+        }
+        
+        .user-avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--red-angola), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-bold);
+            font-size: var(--text-sm);
+            color: white;
+            border: 2px solid var(--gold-angola);
+            flex-shrink: 0;
+        }
+        
+        .sidebar-user-info p { font-size: var(--text-sm); font-weight: var(--font-medium); color: var(--text-inverse); }
+        .sidebar-user-info span { font-size: 0.6875rem; color: var(--text-sidebar-muted); }
+        
+        .btn-logout {
+            width: 100%;
+            padding: 0.625rem;
+            border: 1px solid rgba(239,68,68,0.3);
+            border-radius: var(--radius-lg);
+            background: rgba(239,68,68,0.1);
+            color: #FCA5A5;
+            font-family: var(--font-sans);
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            min-height: 2.75rem;
+        }
+        
+        .btn-logout:hover { background: rgba(239,68,68,0.2); border-color: rgba(239,68,68,0.5); color: #FECACA; }
+        
+        #sidebarOverlay {
+            position: fixed;
+            inset: 0;
+            background: var(--surface-overlay);
+            z-index: var(--z-overlay);
+            opacity: 1;
+            transition: opacity var(--transition-normal);
+        }
+        #sidebarOverlay.hidden { opacity: 0; pointer-events: none; }
+        @media (min-width: 1024px) { #sidebarOverlay { display: none; } }
+        
+        .main-header {
+            background: var(--surface-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 0 var(--space-4);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: var(--z-header);
+            gap: var(--space-3);
+        }
+        
+        @media (min-width: 640px) { .main-header { padding: 0 var(--space-6); } }
+        
+        @supports not (backdrop-filter: blur(12px)) { .main-header { background: rgba(255,255,255,0.98); } }
+        
+        .header-left { display: flex; align-items: center; gap: var(--space-3); min-width: 0; }
+        
+        .btn-menu {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            background: var(--surface-primary);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .btn-menu:hover { background: var(--gray-100); color: var(--text-primary); }
+        @media (min-width: 1024px) { .btn-menu { display: none; } }
+        
+        .header-title { min-width: 0; }
+        
+        .header-title h1 {
+            font-size: var(--text-lg);
+            font-weight: var(--font-bold);
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .header-title p {
+            font-size: var(--text-xs);
+            color: var(--text-tertiary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .header-right { display: flex; align-items: center; gap: var(--space-2); flex-shrink: 0; }
+        
+        .search-box { position: relative; display: none; }
+        @media (min-width: 640px) { .search-box { display: block; } }
+        
+        .search-box input {
+            padding: 0.5rem var(--space-4);
+            padding-left: 2.5rem;
+            border: 1.5px solid var(--border-light);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-family: var(--font-sans);
+            width: 12rem;
+            background: var(--surface-secondary);
+            transition: all var(--transition-normal);
+            min-height: 2.5rem;
+        }
+        
+        @media (min-width: 768px) { .search-box input { width: 16rem; } .search-box input:focus { width: 18rem; } }
+        
+        .search-box input:focus {
+            background: var(--surface-primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(59,130,246,0.08);
+        }
+        
+        .search-box .search-icon { position: absolute; left: var(--space-3); top: 50%; transform: translateY(-50%); color: var(--gray-400); font-size: var(--text-sm); }
+        
+        .btn-notification {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border-light);
+            background: var(--surface-primary);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all var(--transition-fast);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .btn-notification:hover { background: var(--gray-100); color: var(--text-primary); }
+        
+        .notification-badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 1.25rem;
+            height: 1.25rem;
+            background: var(--danger);
+            color: white;
+            font-size: 0.625rem;
+            font-weight: var(--font-bold);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--surface-primary);
+        }
+        
+        .main-content { flex: 1; padding: var(--space-4); overflow-y: auto; background: var(--gray-50); }
+        @media (min-width: 640px) { .main-content { padding: var(--space-6); } }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+        }
+        
+        @media (min-width: 480px) { .stats-grid { grid-template-columns: 1fr 1fr; } }
+        @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); } }
+        @media (min-width: 1024px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+        
+        .stat-card {
+            background: var(--surface-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-4);
+            box-shadow: var(--shadow-card);
+            transition: all var(--transition-normal);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+            min-height: 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        @media (min-width: 640px) { .stat-card { padding: var(--space-5); } }
+        
+        .stat-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
+        
+        .stat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+        .stat-card.primary::before { background: var(--primary); }
+        .stat-card.success::before { background: var(--success); }
+        .stat-card.warning::before { background: var(--warning); }
+        .stat-card.danger::before { background: var(--danger); }
+        .stat-card.info::before { background: var(--info); }
+        
+        .stat-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: var(--space-2);
+        }
+        
+        .stat-card.primary .stat-icon { background: var(--primary-light); color: var(--primary); }
+        .stat-card.success .stat-icon { background: var(--success-light); color: var(--success); }
+        .stat-card.warning .stat-icon { background: var(--warning-light); color: var(--warning); }
+        .stat-card.danger .stat-icon { background: var(--danger-light); color: var(--danger); }
+        .stat-card.info .stat-icon { background: var(--info-light); color: var(--info); }
+        
+        .stat-value {
+            font-size: var(--text-2xl);
+            font-weight: var(--font-extrabold);
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: var(--space-1);
+        }
+        
+        @media (min-width: 640px) { .stat-value { font-size: var(--text-3xl); } }
+        
+        .stat-label { font-size: var(--text-xs); color: var(--text-secondary); font-weight: var(--font-medium); }
+        @media (min-width: 640px) { .stat-label { font-size: var(--text-sm); } }
+        
+        .stat-change { font-size: var(--text-xs); font-weight: var(--font-semibold); margin-top: var(--space-2); display: flex; align-items: center; gap: var(--space-1); }
+        .stat-change.positive { color: var(--success); }
+        .stat-change.negative { color: var(--danger); }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-4);
+        }
+        
+        @media (min-width: 768px) { .dashboard-grid { grid-template-columns: 1fr 1fr; } }
+        @media (min-width: 1024px) { .dashboard-grid { grid-template-columns: 2fr 1fr; } }
+        
+        .content-card {
+            background: var(--surface-primary);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+        
+        .content-card-header {
+            padding: var(--space-4);
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-3);
+            flex-wrap: wrap;
+        }
+        
+        @media (min-width: 640px) { .content-card-header { padding: var(--space-5) var(--space-6); } }
+        
+        .content-card-header h3 { font-size: var(--text-base); font-weight: var(--font-bold); color: var(--text-primary); }
+        @media (min-width: 640px) { .content-card-header h3 { font-size: var(--text-lg); } }
+        
+        .content-card-body { padding: var(--space-4); }
+        @media (min-width: 640px) { .content-card-body { padding: var(--space-6); } }
+        
+        .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+        
+        table { width: 100%; border-collapse: collapse; font-size: var(--text-xs); min-width: 600px; }
+        @media (min-width: 640px) { table { font-size: var(--text-sm); } }
+        
+        table thead { background: var(--gray-50); border-bottom: 2px solid var(--border-light); }
+        
+        table thead th {
+            padding: var(--space-2) var(--space-3);
+            text-align: left;
+            font-weight: var(--font-semibold);
+            color: var(--text-secondary);
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+        
+        @media (min-width: 640px) { table thead th { padding: var(--space-3) var(--space-4); font-size: var(--text-xs); } }
+        
+        table tbody tr { border-bottom: 1px solid var(--border-light); transition: background var(--transition-fast); }
+        table tbody tr:hover { background: var(--gray-50); }
+        table tbody td { padding: var(--space-2) var(--space-3); color: var(--text-primary); vertical-align: middle; }
+        @media (min-width: 640px) { table tbody td { padding: var(--space-3) var(--space-4); } }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-4);
+        }
+        
+        @media (min-width: 480px) { .books-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 768px) { .books-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 1024px) { .books-grid { grid-template-columns: repeat(4, 1fr); } }
+        
+        .book-card {
+            background: var(--surface-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-4);
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-light);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .book-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+        
+        .book-cover {
+            width: 100%;
+            height: 5rem;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: var(--space-3);
+        }
+        
+        @media (min-width: 640px) { .book-cover { height: 7rem; font-size: 2.5rem; } }
+        .book-cover i { color: var(--primary); opacity: 0.3; }
+        .book-status-badge { position: absolute; top: var(--space-3); right: var(--space-3); }
+        
+        .book-title {
+            font-size: var(--text-sm);
+            font-weight: var(--font-bold);
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+            line-height: var(--leading-tight);
+        }
+        
+        @media (min-width: 640px) { .book-title { font-size: var(--text-base); } }
+        .book-author { font-size: var(--text-xs); color: var(--text-secondary); margin-bottom: var(--space-2); }
+        
+        .book-category {
+            display: inline-block;
+            font-size: 0.625rem;
+            font-weight: var(--font-medium);
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-full);
+            background: var(--gray-100);
+            color: var(--text-secondary);
+        }
+        
+        @media (min-width: 640px) { .book-category { font-size: var(--text-xs); } }
+        .book-actions { display: flex; gap: var(--space-2); margin-top: var(--space-3); flex-wrap: wrap; }
+        
+        .badge {
             display: inline-flex;
             align-items: center;
             gap: 0.25rem;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.625rem;
+            font-weight: var(--font-semibold);
+            border-radius: var(--radius-full);
+            white-space: nowrap;
         }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
+        
+        @media (min-width: 640px) { .badge { font-size: var(--text-xs); padding: 0.25rem 0.75rem; } }
+        .badge-success { background: var(--success-light); color: var(--success); }
+        .badge-danger { background: var(--danger-light); color: var(--danger); }
+        .badge-warning { background: var(--warning-light); color: var(--warning); }
+        .badge-info { background: var(--info-light); color: var(--info); }
+        .badge-primary { background: var(--primary-light); color: var(--primary); }
+        .badge-secondary { background: var(--secondary-light); color: var(--secondary); }
+        
+        .badge-dot { width: 0.4rem; height: 0.4rem; border-radius: var(--radius-full); display: inline-block; flex-shrink: 0; }
+        .badge-dot.success { background: var(--success); }
+        .badge-dot.danger { background: var(--danger); }
+        .badge-dot.warning { background: var(--warning); }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-lg);
+            font-family: var(--font-sans);
+            font-weight: var(--font-medium);
+            font-size: var(--text-xs);
+            border: 1.5px solid transparent;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+            text-decoration: none;
+            line-height: 1.25;
+            min-height: 2.25rem;
         }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
+        
+        @media (min-width: 640px) { .btn { padding: 0.625rem 1.25rem; font-size: var(--text-sm); } }
+        .btn:active { transform: scale(0.96); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        
+        .btn-primary { background: var(--primary-gradient); color: white; box-shadow: 0 2px 8px rgba(30,64,175,0.2); }
+        .btn-primary:hover:not(:disabled) { box-shadow: 0 4px 16px rgba(30,64,175,0.3); transform: translateY(-1px); }
+        
+        .btn-success { background: var(--success-gradient); color: white; box-shadow: 0 2px 8px rgba(5,150,105,0.2); }
+        .btn-success:hover:not(:disabled) { box-shadow: 0 4px 16px rgba(5,150,105,0.3); transform: translateY(-1px); }
+        
+        .btn-danger { background: var(--danger-gradient); color: white; }
+        .btn-danger:hover:not(:disabled) { box-shadow: 0 4px 16px rgba(220,38,38,0.3); }
+        
+        .btn-ghost { background: transparent; border-color: var(--border-light); color: var(--text-secondary); }
+        .btn-ghost:hover:not(:disabled) { background: var(--gray-100); color: var(--text-primary); }
+        
+        .btn-sm { padding: 0.3rem 0.6rem; font-size: 0.625rem; min-height: 1.75rem; }
+        @media (min-width: 640px) { .btn-sm { padding: 0.375rem 0.75rem; font-size: var(--text-xs); } }
+        
+        .btn-icon { width: 2rem; height: 2rem; padding: 0; border-radius: var(--radius-lg); }
+        @media (min-width: 640px) { .btn-icon { width: 2.25rem; height: 2.25rem; } }
+        
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--surface-overlay);
+            z-index: var(--z-modal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-4);
+            animation: modalOverlayIn 0.2s ease;
         }
-        .book-card:hover {
-            transform: translateY(-5px);
-            transition: all 0.2s ease;
-            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.15);
+        
+        @keyframes modalOverlayIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        .modal-container {
+            background: var(--surface-primary);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-2xl);
+            width: 100%;
+            max-width: 32rem;
+            max-height: 85vh;
+            max-height: 85dvh;
+            overflow-y: auto;
+            animation: modalSlideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        .chart-bar {
-            transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: scale(0.92) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
-            border-color: #3b82f6;
+        
+        .modal-header {
+            padding: var(--space-4);
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            background: var(--surface-primary);
+            z-index: 1;
         }
-        .flag-angola {
-            background: linear-gradient(135deg, #C8102E, #FFC72C, #000000);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        
+        @media (min-width: 640px) { .modal-header { padding: var(--space-5) var(--space-6); } }
+        .modal-header h3 { font-size: var(--text-lg); font-weight: var(--font-bold); }
+        
+        .modal-close {
+            width: 2rem;
+            height: 2rem;
+            border-radius: var(--radius-full);
+            border: none;
+            background: var(--gray-100);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+            flex-shrink: 0;
         }
-        .btn { padding: .5rem .75rem; border-radius: .5rem; display:inline-flex; align-items:center; gap:.5rem; border:1px solid transparent; }
-        .btn-primary { background:linear-gradient(90deg,#2563eb,#3b82f6); color:white; }
-        .btn-ghost { background:transparent; border-color:rgba(0,0,0,0.06); }
-        .btn { padding: .5rem .75rem; border-radius: .5rem; display:inline-flex; align-items:center; gap:.5rem; border:1px solid transparent; }
-        .btn-primary { background:linear-gradient(90deg,#2563eb,#3b82f6); color:white; }
-        .btn-ghost { background:transparent; border-color:rgba(0,0,0,0.06); }
-        @media (max-width: 1023px) {
-            .sidebar-link { font-size: 0.95rem; }
-            .animate-float { display: none; }
+        
+        .modal-close:hover { background: var(--danger-light); color: var(--danger); }
+        .modal-body { padding: var(--space-4); }
+        @media (min-width: 640px) { .modal-body { padding: var(--space-6); } }
+        
+        .modal-footer {
+            padding: var(--space-3) var(--space-4);
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            justify-content: flex-end;
+            gap: var(--space-2);
+            position: sticky;
+            bottom: 0;
+            background: var(--surface-primary);
         }
-        @media (max-width: 767px) {
-            .sidebar-link { padding-left: 1rem; padding-right: 1rem; }
-            .sidebar-link span { display: inline-block; }
+        
+        @media (min-width: 640px) { .modal-footer { padding: var(--space-4) var(--space-6); } }
+        
+        .form-group { margin-bottom: var(--space-3); }
+        
+        .form-group label { display: block; font-size: var(--text-xs); font-weight: var(--font-medium); color: var(--text-primary); margin-bottom: var(--space-1); }
+        @media (min-width: 640px) { .form-group label { font-size: var(--text-sm); } }
+        .form-group label .required { color: var(--danger); }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.5rem var(--space-3);
+            border: 1.5px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-sans);
+            font-size: var(--text-sm);
+            color: var(--text-primary);
+            background: var(--surface-primary);
+            transition: all var(--transition-normal);
+            min-height: 2.5rem;
+        }
+        
+        .form-input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(59,130,246,0.08); }
+        
+        .form-input.error { border-color: var(--danger); background: var(--danger-light); animation: shake 0.4s ease; }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            75% { transform: translateX(6px); }
+        }
+        
+        .form-error { font-size: 0.625rem; color: var(--danger); margin-top: var(--space-1); font-weight: var(--font-medium); }
+        
+        .toast-container {
+            position: fixed;
+            top: var(--space-4);
+            right: var(--space-4);
+            z-index: var(--z-toast);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            max-width: calc(100vw - 2rem);
+            width: auto;
+        }
+        
+        @media (max-width: 640px) {
+            .toast-container { left: var(--space-4); right: var(--space-4); top: auto; bottom: var(--space-4); max-width: none; }
+        }
+        
+        .toast {
+            padding: var(--space-3) var(--space-4);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-2);
+            animation: toastSlideIn 0.3s ease;
+            font-size: var(--text-xs);
+            color: white;
+        }
+        
+        @media (min-width: 640px) { .toast { font-size: var(--text-sm); } }
+        
+        @keyframes toastSlideIn {
+            from { opacity: 0; transform: translateX(100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @media (max-width: 640px) {
+            @keyframes toastSlideIn {
+                from { opacity: 0; transform: translateY(100%); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        }
+        
+        .toast-success { background: #065F46; border-left: 4px solid #34D399; }
+        .toast-error { background: #991B1B; border-left: 4px solid #F87171; }
+        .toast-warning { background: #92400E; border-left: 4px solid #FBBF24; }
+        .toast-info { background: #1E3A8A; border-left: 4px solid #60A5FA; }
+        
+        .students-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-4);
+        }
+        
+        @media (min-width: 480px) { .students-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 768px) { .students-grid { grid-template-columns: repeat(3, 1fr); } }
+        
+        .student-card {
+            background: var(--surface-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-4);
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-light);
+            transition: all var(--transition-normal);
+        }
+        
+        .student-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
+        
+        .student-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-bold);
+            font-size: var(--text-base);
+            color: white;
+            margin-bottom: var(--space-3);
+        }
+        
+        .student-name { font-size: var(--text-base); font-weight: var(--font-bold); color: var(--text-primary); }
+        .student-info { font-size: var(--text-xs); color: var(--text-secondary); margin-top: var(--space-1); }
+        
+        .hidden { display: none !important; }
+        .text-center { text-align: center; }
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .gap-2 { gap: var(--space-2); }
+        .gap-3 { gap: var(--space-3); }
+        .gap-4 { gap: var(--space-4); }
+        .w-full { width: 100%; }
+        .flex-wrap { flex-wrap: wrap; }
+        .flex-1 { flex: 1; }
+        
+        section { animation: sectionFadeIn 0.3s ease; }
+        
+        @keyframes sectionFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 1023px) { :root { --sidebar-width: 18rem; } #sidebar { z-index: var(--z-sidebar); } }
+        @media (max-width: 640px) {
+            :root { --header-height: 3.5rem; }
+            .main-header { padding: 0 var(--space-3); }
+            .main-content { padding: var(--space-3); }
+            .header-title h1 { font-size: var(--text-base); }
+            .auth-card { max-width: 100%; }
+            .modal-container { max-width: 100%; max-height: 90vh; max-height: 90dvh; }
+        }
+        
+        @media (max-width: 380px) {
+            .header-title p { display: none; }
+            .stat-card { padding: var(--space-3); }
+            .stat-icon { width: 2rem; height: 2rem; font-size: 1rem; }
+            .stat-value { font-size: var(--text-xl); }
+        }
+        
+        @media print {
+            #sidebar, #sidebarOverlay, .btn-menu, .toast-container, .btn, .modal-overlay { display: none !important; }
+            body { background: white; }
+            .main-content { padding: 0; }
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
-<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+<body>
 
-    <!-- Elementos flutuantes decorativos -->
-    <div class="fixed top-20 left-10 text-blue-100/20 text-7xl animate-float pointer-events-none z-0"><i class="fas fa-book-open"></i></div>
-    <div class="fixed bottom-32 right-16 text-amber-100/20 text-8xl animate-float pointer-events-none z-0" style="animation-delay: 1.5s;"><i class="fas fa-graduation-cap"></i></div>
-    <div class="fixed top-1/3 right-10 text-indigo-100/20 text-6xl animate-float pointer-events-none z-0" style="animation-delay: 2.5s;"><i class="fas fa-flag-checkered"></i></div>
-
-    <!-- TELA DE LOGIN -->
-    <div id="loginScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 backdrop-blur-sm">
-        <div class="glass-effect p-8 rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all">
-            <div class="text-center mb-6">
-                <div class="w-20 h-20 bg-gradient-to-br from-yellow-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <i class="fas fa-book-reader text-3xl text-white"></i>
-                </div>
-                <h1 class="text-3xl font-bold text-gray-800">📚 Biblioteca CIV</h1>
-                <p class="text-red-700 text-sm font-medium"></p>
-                <p class="text-xs text-gray-500 mt-1">Ministério da Educação | Ensino Geral</p>
+    <div id="authScreen">
+        <div class="auth-card">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <div class="logo-container"><i class="fas fa-book-open logo-icon"></i></div>
+                <h1 style="font-family: var(--font-display); font-size: var(--text-xl); font-weight: var(--font-black); color: var(--text-primary);">Biblioteca CIV</h1>
+                <p style="font-size: var(--text-xs); color: var(--text-tertiary); margin-top: 0.25rem;">Ministério da Educação · Ensino Geral</p>
             </div>
+            
+            <div style="display: flex; border-bottom: 1px solid var(--border-light); margin-bottom: 1.5rem;">
+                <button class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')"><i class="fas fa-sign-in-alt" style="margin-right: 0.5rem;"></i> Entrar</button>
+                <button class="auth-tab" id="tabRegister" onclick="switchAuthTab('register')"><i class="fas fa-user-graduate" style="margin-right: 0.5rem;"></i> Cadastrar</button>
+            </div>
+            
             <form id="loginForm">
-                <div class="mb-4">
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">E-mail institucional</label>
-                    <div class="relative">
-                        <i class="fas fa-envelope absolute left-3 top-3 text-gray-400"></i><!----value="admin@kixikubula.ao"----->
-                        <input type="email" id="loginEmail"  class="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
-                    </div>
-                </div>
-                <div class="mb-6">
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Palavra-passe</label>
-                    <div class="relative">
-                        <i class="fas fa-lock absolute left-3 top-3 text-gray-400"></i><!--value="Angola2025!"-------->
-                        <input type="password" id="loginPassword"  class="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
-                    </div>
-                </div>
-                <button type="submit" class="w-full bg-gradient-to-r from-red-700 to-yellow-600 text-white py-3 rounded-lg font-bold hover:shadow-xl transform transition-all">Entrar no Sistema <i class="fas fa-arrow-right ml-2"></i></button>
-                <p class="text-center text-white/70 text-xs mt-4">Demo: admin@kixikubula.ao / Angola2025!</p>
+                <div class="input-group"><label>E-mail</label><div class="input-wrapper"><i class="fas fa-envelope input-icon"></i><input type="email" id="loginEmail" placeholder="seu@email.com"></div></div>
+                <div class="input-group"><label>Palavra-passe</label><div class="input-wrapper"><i class="fas fa-lock input-icon"></i><input type="password" id="loginPassword" placeholder="••••••••"><button type="button" class="toggle-password" onclick="togglePassword('loginPassword', this)"><i class="fas fa-eye"></i></button></div></div>
+                <button type="submit" class="btn-auth btn-auth-login" style="margin-top: 0.5rem;"><i class="fas fa-arrow-right-to-bracket" style="margin-right: 0.5rem;"></i> Entrar no Sistema</button>
+                <p style="text-align: center; font-size: var(--text-xs); color: var(--text-tertiary); margin-top: 1rem;"></p>
+            </form>
+            
+            <form id="registerForm" class="hidden">
+                <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-lg); padding: 0.75rem; margin-bottom: 1rem; font-size: var(--text-xs); color: #1E40AF;"><i class="fas fa-info-circle"></i> <strong>Cadastro de Estudante.</strong> Gestores são criados pelo administrador.</div>
+                <div class="input-group"><label>Nome Completo <span style="color: var(--danger);">*</span></label><div class="input-wrapper"><i class="fas fa-user input-icon"></i><input type="text" id="regNome" placeholder="Seu nome completo" required minlength="3"></div></div>
+                <div class="input-group"><label>E-mail <span style="color: var(--danger);">*</span></label><div class="input-wrapper"><i class="fas fa-envelope input-icon"></i><input type="email" id="regEmail" placeholder="seu@email.com" required></div></div>
+                <div class="input-group"><label>Nº de Matrícula <span style="color: var(--danger);">*</span></label><div class="input-wrapper"><i class="fas fa-id-card input-icon"></i><input type="text" id="regMatricula" placeholder="Ex: 2024001" required></div></div>
+                <div class="input-group"><label>Turma/Classe <span style="color: var(--danger);">*</span></label><select id="regTurma" required style="padding-left: 2.75rem;"><option value="">Selecione...</option><option>7ª Classe</option><option>8ª Classe</option><option>9ª Classe</option><option>10ª Classe</option><option>11ª Classe</option><option>12ª Classe</option></select></div>
+                <div class="input-group"><label>Telefone</label><div class="input-wrapper"><i class="fas fa-phone input-icon"></i><input type="tel" id="regTelefone" placeholder="+244 9XX XXX XXX"></div></div>
+                <div class="input-group"><label>Palavra-passe <span style="color: var(--danger);">*</span></label><div class="input-wrapper"><i class="fas fa-lock input-icon"></i><input type="password" id="regPassword" placeholder="Mínimo 6 caracteres" required minlength="6"><button type="button" class="toggle-password" onclick="togglePassword('regPassword', this)"><i class="fas fa-eye"></i></button></div></div>
+                <div class="input-group"><label>Confirmar Palavra-passe <span style="color: var(--danger);">*</span></label><div class="input-wrapper"><i class="fas fa-lock input-icon"></i><input type="password" id="regPasswordConfirm" placeholder="Repita a palavra-passe" required></div></div>
+                <button type="submit" class="btn-auth btn-auth-register"><i class="fas fa-user-graduate" style="margin-right: 0.5rem;"></i> Criar Conta de Estudante</button>
+                <p style="text-align: center; font-size: var(--text-xs); color: var(--text-tertiary); margin-top: 1rem;">Já tem conta? <a href="#" onclick="switchAuthTab('login'); return false;" style="color: var(--primary); font-weight: var(--font-medium);">Faça login</a></p>
             </form>
         </div>
     </div>
 
-    <!-- APLICAÇÃO PRINCIPAL -->
-    <div id="mainApp" class="hidden min-h-screen flex flex-col md:flex-row relative z-10">
-        <div id="sidebarOverlay" class="hidden fixed inset-0 bg-black/40 z-40 md:hidden" onclick="toggleSidebar()"></div>
-        <!-- SIDEBAR ANGOLANA -->
-        <aside id="sidebar" class="hidden md:flex w-4/5 max-w-xs md:w-64 bg-[#0B1E33] text-white flex-col shadow-2xl md:min-h-screen z-50 fixed md:static inset-y-0 left-0 md:relative md:z-auto overflow-y-auto">
-            <div class="p-5 border-b border-blue-900/50">
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-landmark text-yellow-500 text-2xl"></i>
-                    <div>
-                        <h2 class="font-bold text-lg tracking-tight">Biblioteca CIV </h2>
-                        <p class="text-[10px] text-blue-200">Biblioteca CIV </p>
-                    </div>
-                </div>
+    <div id="mainApp" class="hidden" style="display: flex; min-height: 100vh;">
+        <div id="sidebarOverlay" class="hidden" onclick="toggleSidebar()"></div>
+        
+        <aside id="sidebar" class="sidebar-hidden">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="fas fa-landmark" style="color: white;"></i></div>
+                <div class="sidebar-brand"><h2>Biblioteca CIV</h2><p>Sistema de Gestão</p></div>
             </div>
-            <nav class="flex-1 py-6 px-3 space-y-1.5">
-                <a href="#" onclick="showSection('dashboard')" data-nav="dashboard" class="sidebar-link flex items-center space-x-3 px-4 py-2.5 rounded-lg hover:bg-blue-800/50 transition-all"><i class="fas fa-chart-line w-5 text-yellow-400"></i><span>Painel Principal</span></a>
-                <a href="#" onclick="showSection('books')" data-nav="books" class="sidebar-link flex items-center space-x-3 px-4 py-2.5 rounded-lg hover:bg-blue-800/50"><i class="fas fa-book w-5 text-blue-300"></i><span>Acervo</span></a>
-                <a href="#" onclick="showSection('loans')" data-nav="loans" class="sidebar-link flex items-center space-x-3 px-4 py-2.5 rounded-lg hover:bg-blue-800/50"><i class="fas fa-hand-holding-heart w-5 text-green-300"></i><span>Empréstimos</span></a>
-                <a href="#" onclick="showSection('students')" data-nav="students" class="sidebar-link flex items-center space-x-3 px-4 py-2.5 rounded-lg hover:bg-blue-800/50"><i class="fas fa-users w-5 text-purple-300"></i><span>Estudantes</span></a>
-                <a href="#" onclick="showSection('reservations')" data-nav="reservations" class="sidebar-link flex items-center space-x-3 px-4 py-2.5 rounded-lg hover:bg-blue-800/50"><i class="fas fa-calendar-check w-5 text-pink-300"></i><span>Reservas</span></a>
-                <a href="#" onclick="showSection('reports')" data-nav="reports" class="sidebar-link flex items-center space-x-3 px-4 py-2.5 rounded-lg hover:bg-blue-800/50"><i class="fas fa-chart-simple w-5 text-orange-300"></i><span>Relatórios</span></a>
-            </nav>
-            <div class="p-4 border-t border-blue-800">
-                <div class="flex items-center gap-2 mb-3">
-                    <img src="https://ui-avatars.com/api/?name=Admin+ANG&background=EF4444&color=fff&bold=true" class="w-9 h-9 rounded-full border border-yellow-500">
-                    <div><p class="text-sm font-semibold">Gestor Escolar</p><p class="text-[11px] text-blue-300">Luanda, Angola</p></div>
+            <nav id="sidebarMenu" class="sidebar-nav"></nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <div class="sidebar-user-info"><p id="userName">Utilizador</p><span id="userRole">Perfil</span></div>
                 </div>
-                <button onclick="logout()" class="w-full flex items-center justify-center gap-2 bg-red-800 hover:bg-red-700 py-2 rounded-lg transition-all text-sm"><i class="fas fa-sign-out-alt"></i> Sair</button>
+                <button onclick="logout()" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Sair do Sistema</button>
             </div>
         </aside>
 
-        <!-- MAIN CONTENT -->
-        <main class="flex-1 flex flex-col overflow-hidden">
-            <header class="bg-white/80 backdrop-blur-sm border-b px-4 sm:px-6 py-3 flex flex-col sm:flex-row justify-between items-start sm:items-center shadow-sm gap-3">
-                <div class="flex items-center justify-between w-full sm:w-auto gap-3">
-                    <div><h2 id="pageTitle" class="text-xl font-bold text-gray-800">Dashboard</h2><p id="currentDate" class="text-xs text-gray-500"></p></div>
-                    <button id="sidebarToggle" onclick="toggleSidebar()" class="md:hidden bg-white/90 text-gray-700 rounded-full p-2 shadow-sm"><i class="fas fa-bars"></i></button>
+        <main style="flex: 1; display: flex; flex-direction: column; min-height: 100vh; min-width: 0;">
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="btn-menu" id="mobileMenuBtn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+                    <div class="header-title"><h1 id="pageTitle">Painel Principal</h1><p id="currentDate"></p></div>
                 </div>
-                <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto items-start sm:items-center">
-                    <div class="relative flex-1 sm:flex-none w-full sm:w-[18rem]"><i class="fas fa-search absolute left-3 top-2.5 text-gray-400 text-sm"></i><input type="text" id="globalSearch" placeholder="Pesquisar livro ou estudante..." class="pl-9 pr-3 py-2 border rounded-full text-sm w-full focus:ring-1 focus:ring-blue-400"></div>
-                    <div class="relative"><i class="fas fa-bell text-gray-600 text-xl"></i><span class="absolute -top-1 -right-1 bg-red-600 text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center">3</span></div>
+                <div class="header-right">
+                    <div class="search-box"><i class="fas fa-search search-icon"></i><input type="text" id="globalSearch" placeholder="Pesquisar..."></div>
+                    <button class="btn-notification" onclick="showSection('loans')"><i class="fas fa-bell"></i><span class="notification-badge" id="notifBadge">0</span></button>
                 </div>
             </header>
-            <div class="flex-1 overflow-y-auto custom-scrollbar p-6 bg-gray-50">
-                <!-- DASHBOARD -->
-                <section id="dashboardSection" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
-                        <div class="bg-white p-5 rounded-2xl shadow-sm border-l-8 border-blue-600"><div><p class="text-gray-500 text-sm">Total de Livros</p><h3 class="text-3xl font-bold" id="totalBooks">0</h3><p class="text-green-600 text-xs mt-1"><i class="fas fa-book"></i> Acervo completo</p></div></div>
-                        <div class="bg-white p-5 rounded-2xl shadow-sm border-l-8 border-yellow-500"><div><p class="text-gray-500 text-sm">Empréstimos Activos</p><h3 class="text-3xl font-bold" id="activeLoans">0</h3><p class="text-amber-600 text-xs">📖 em circulação</p></div></div>
-                        <div class="bg-white p-5 rounded-2xl shadow-sm border-l-8 border-red-600"><div><p class="text-gray-500 text-sm">Atrasos & Multas (Kz)</p><h3 class="text-3xl font-bold" id="totalMultas">0</h3><p class="text-red-600 text-xs"><i class="fas fa-exclamation-triangle"></i> Kwanza pendente</p></div></div>
-                        <div class="bg-white p-5 rounded-2xl shadow-sm border-l-8 border-green-600"><div><p class="text-gray-500 text-sm">Estudantes Activos</p><h3 class="text-3xl font-bold" id="totalStudents">0</h3><p class="text-green-600 text-xs"><i class="fas fa-user-graduate"></i> matriculados</p></div></div>
-                    </div>
-                    <div class="grid lg:grid-cols-3 gap-6">
-                        <div class="lg:col-span-2 bg-white rounded-2xl shadow-md p-5"><h3 class="font-bold flex items-center gap-2 mb-3"><i class="fas fa-chart-line text-blue-600"></i> Movimento de Empréstimos (últimos 7 dias)</h3><canvas id="loanChart" height="180"></canvas></div>
-                        <div class="bg-white rounded-2xl shadow-md p-5"><h3 class="font-bold flex gap-2"><i class="fas fa-bell text-yellow-500"></i> Notificações Rápidas</h3><div id="notificationsList" class="space-y-3 mt-3 max-h-64 overflow-y-auto"></div></div>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-md p-6"><h3 class="font-bold text-lg mb-3">⚡ Ações Rápidas (Angola)</h3><div class="flex flex-wrap gap-4"><button onclick="openModal('loanModal')" class="bg-blue-100 text-blue-800 px-5 py-2 rounded-xl flex items-center gap-2 hover:bg-blue-200"><i class="fas fa-plus-circle"></i>Novo Empréstimo</button><button onclick="openModal('bookModal')" class="bg-green-100 text-green-800 px-5 py-2 rounded-xl flex items-center gap-2"><i class="fas fa-book"></i>Adicionar Livro</button><button onclick="openModal('studentModal')" class="bg-purple-100 text-purple-800 px-5 py-2 rounded-xl"><i class="fas fa-user-plus"></i> Novo Aluno</button><button onclick="showSection('reports')" class="bg-orange-100 text-orange-800 px-5 py-2 rounded-xl"><i class="fas fa-file-csv"></i> Exportar Relatório</button></div></div>
-                </section>
-
-                <!-- ACERVO (LIVROS) -->
-                <section id="booksSection" class="hidden space-y-4">
-                    <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
-                        <div class="flex flex-col sm:flex-row flex-1 gap-2">
-                            <select id="categoryFilter" class="border rounded-lg px-3 py-2 text-sm w-full sm:w-auto"><option value="">Todas Categorias</option><option>Literatura Angolana</option><option>Ficção</option><option>História</option><option>Ciência</option><option>Didáticos</option></select>
-                            <select id="statusFilter" class="border rounded-lg px-3 py-2 text-sm w-full sm:w-auto"><option value="">Todos Status</option><option value="disponivel">Disponível</option><option value="emprestado">Emprestado</option><option value="reservado">Reservado</option></select>
-                        </div>
-                        <button onclick="openModal('bookModal')" class="bg-blue-600 text-white px-5 py-2 rounded-lg">+ Novo Livro</button>
-                    </div>
-                    <div id="booksGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
-                </section>
-
-                <!-- EMPRÉSTIMOS -->
-                <section id="loansSection" class="hidden"><div class="bg-white rounded-xl shadow overflow-x-auto"><table class="min-w-full"><thead class="bg-gray-100"><tr><th class="p-3 text-left">Estudante</th><th>Livro</th><th>Empréstimo</th><th>Devolução prevista</th><th>Multa (Kz)</th><th>Status</th><th>Ações</th></tr></thead><tbody id="loansTableBody"></tbody></table></div></section>
-
-                <!-- ESTUDANTES -->
-                <section id="studentsSection" class="hidden"><div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3"><input type="text" id="studentSearchInput" placeholder="Pesquisar por nome ou matrícula..." class="border p-2 rounded-lg w-full sm:w-80"><button onclick="openModal('studentModal')" class="bg-purple-600 text-white px-4 py-2 rounded-lg">+ Cadastrar Aluno</button></div><div id="studentsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div></section>
-
-                <!-- RESERVAS -->
-                <section id="reservationsSection" class="hidden"><div id="reservationsList" class="space-y-3"></div></section>
-
-                <!-- RELATÓRIOS -->
-                <section id="reportsSection" class="hidden"><div class="grid md:grid-cols-2 gap-6"><div class="bg-white p-5 rounded-2xl"><h3 class="font-bold">📊 Relatórios Estratégicos</h3><button onclick="exportToCSV('loans')" class="mt-3 w-full bg-green-600 text-white py-2 rounded-lg">Exportar Empréstimos (CSV)</button><button onclick="exportToCSV('books')" class="mt-2 w-full bg-blue-600 text-white py-2 rounded-lg">Exportar Acervo (CSV)</button></div><div class="bg-white p-5 rounded-2xl"><h3 class="font-bold">📌 Estatísticas Angolanas</h3><ul class="space-y-2"><li><span class="font-semibold">📘 Livro mais lido:</span> <span id="popularBook">--</span></li><li><span class="font-semibold">🧑‍🎓 Aluno mais ativo:</span> <span id="topStudent">--</span></li><li><span class="font-semibold">💰 Multas totais arrecadadas:</span> <span id="totalMultasDisplay">0 Kz</span></li></ul></div></div></section>
-            </div>
+            <div class="main-content custom-scrollbar" id="mainContent"></div>
         </main>
     </div>
 
-    <!-- MODAIS -->
-    <div id="bookModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50"><div class="bg-white rounded-xl max-w-md w-full p-6"><h3 class="text-xl font-bold mb-3">📗 Novo Livro</h3><form id="addBookForm"><input type="text" id="bookTitle" placeholder="Título" class="w-full border p-2 rounded mb-2" required><input type="text" id="bookAuthor" placeholder="Autor (ex: Pepetela)" class="w-full border p-2 rounded mb-2" required><select id="bookCategory" class="w-full border p-2 rounded mb-2"><option>Literatura Angolana</option><option>Ficção</option><option>História</option><option>Ciência</option></select><textarea id="bookDesc" placeholder="Descrição breve" rows="2" class="w-full border p-2 rounded mb-3"></textarea><div class="flex justify-end gap-2"><button type="button" onclick="closeModal('bookModal')" class="px-4 py-2 border rounded">Cancelar</button><button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Registar Livro</button></div></form></div></div>
-    
-    <div id="loanModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50"><div class="bg-white rounded-xl max-w-md w-full p-6"><h3 class="font-bold">📌 Empréstimo Rápido</h3><form id="addLoanForm"><select id="loanStudentSelect" class="w-full border p-2 rounded my-2" required><option value="">Estudante</option></select><select id="loanBookSelect" class="w-full border p-2 rounded my-2" required><option value="">Livro disponível</option></select><input type="date" id="loanDateInput" class="w-full border p-2 rounded my-2"><div class="flex justify-end gap-2 mt-3"><button type="button" onclick="closeModal('loanModal')" class="border px-3 py-1 rounded">Cancelar</button><button type="submit" class="bg-blue-600 text-white px-4 py-1 rounded">Emprestar</button></div></form></div></div>
-    
-    <div id="studentModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50"><div class="bg-white rounded-xl max-w-md w-full p-6"><h3 class="font-bold">🧑‍🎓 Novo Estudante</h3><form id="addStudentForm"><input type="text" id="studentName" placeholder="Nome completo" class="w-full border p-2 rounded mb-2" required><input type="text" id="studentEnroll" placeholder="Matrícula (ex: 2024/ANG001)" class="w-full border p-2 rounded mb-2" required><input type="text" id="studentClass" placeholder="Classe / Turma (Ex: 9ª Classe A)" class="w-full border p-2 rounded mb-2"><input type="email" id="studentEmail" placeholder="Email" class="w-full border p-2 rounded mb-2"><div class="flex justify-end gap-2"><button type="button" onclick="closeModal('studentModal')" class="border px-3 py-1 rounded">Cancelar</button><button type="submit" class="bg-purple-600 text-white px-4 py-1 rounded">Cadastrar</button></div></form></div></div>
-
-    <div id="reservationModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50" role="dialog" aria-modal="true" aria-labelledby="reservationTitle"><div class="bg-white rounded-xl max-w-md w-full p-6"><h3 id="reservationTitle" class="font-bold">📌 Reservar Livro</h3><p class="text-sm text-gray-600 mb-3">Livro: <strong id="reservationBookTitle">-</strong></p><form id="addReservationForm"><label class="sr-only">Estudante</label><select id="reservationStudentSelect" class="w-full border p-2 rounded my-2" required><option value="">Estudante</option></select><div class="flex justify-end gap-2 mt-3"><button type="button" onclick="closeModal('reservationModal')" class="btn btn-ghost">Cancelar</button><button type="submit" class="btn btn-primary">Reservar</button></div></form></div></div>
-
-    <div id="confirmModal" class="hidden fixed inset-0 bg-black/40 flex items-center justify-center z-50" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
-        <div class="bg-white rounded-xl max-w-md w-full p-6">
-            <h3 id="confirmTitle" class="font-bold">Confirmação</h3>
-            <p id="confirmMessage" class="text-sm text-gray-700 mt-2">Tem certeza?</p>
-            <div class="flex justify-end gap-2 mt-4">
-                <button type="button" onclick="closeModal('confirmModal')" class="btn btn-ghost">Cancelar</button>
-                <button id="confirmModalBtn" type="button" class="btn btn-primary">Confirmar</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="toast" class="hidden fixed bottom-5 right-5 bg-gray-800 text-white px-5 py-2 rounded-lg shadow-lg z-50 flex items-center gap-2" role="status" aria-live="polite"><i class="fas fa-check-circle text-green-400"></i><span id="toastMessage">Sucesso</span></div>
+    <div class="toast-container" id="toastContainer"></div>
 
     <script>
-        // ---------- DADOS GLOBAIS (PERSISTÊNCIA LOCALSTORAGE)  BASE DE DADOS SIMULADA----------
-        let books = [];
-        let students = [];
-        let loans = [];
-        let reservations = [];
+        // ============================================================
+        // BIBLIOTECA CIV - JAVASCRIPT COMPLETO v2.2
+        // 
+        // ============================================================
 
-        function saveToLocal() { localStorage.setItem('kixi_books', JSON.stringify(books)); localStorage.setItem('kixi_students', JSON.stringify(students)); localStorage.setItem('kixi_loans', JSON.stringify(loans)); localStorage.setItem('kixi_reservations', JSON.stringify(reservations)); }
-        function loadFromLocal() {
-            books = JSON.parse(localStorage.getItem('kixi_books')) || [];
-            students = JSON.parse(localStorage.getItem('kixi_students')) || [];
-            loans = JSON.parse(localStorage.getItem('kixi_loans')) || [];
-            reservations = JSON.parse(localStorage.getItem('kixi_reservations')) || [];
-            if(books.length === 0) seedData();
-            renderAll();
-            // garantir que selects estejam populados imediatamente
-            populateDropdowns();
+        function validarEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
+        function validarTelefone(telefone) { if (!telefone || telefone.trim() === '') return true; return /^\+244\s?9\d{2}\s?\d{3}\s?\d{3}$/.test(telefone.trim()); }
+        function validarMatriculaUnica(matricula, excludeUserId = null) { const users = getUsers(); return !users.some(u => u.matricula === matricula && u.tipo === 'estudante' && u.id !== excludeUserId); }
+        function validarEmailUnico(email, excludeUserId = null) { const users = getUsers(); return !users.some(u => u.email.toLowerCase() === email.toLowerCase() && u.id !== excludeUserId); }
+        
+        function mostrarErroCampo(inputElement, mensagem) {
+            inputElement.classList.add('error');
+            const parent = inputElement.closest('.input-group') || inputElement.closest('.form-group');
+            if (!parent) return;
+            const existingError = parent.querySelector('.form-error');
+            if (existingError) existingError.remove();
+            const errorSpan = document.createElement('span');
+            errorSpan.className = 'form-error';
+            errorSpan.textContent = '⚠️ ' + mensagem;
+            parent.appendChild(errorSpan);
         }
-        function seedData() {
-            books = [
-                { id: '1', titulo: "Mayombe", autor: "Pepetela", categoria: "Literatura Angolana", descricao: "Clássico da guerra de libertação", status: "disponivel", isbn: "978972210000" },
-                { id: '2', titulo: "Os da Minha Rua", autor: "Ondjaki", categoria: "Literatura Angolana", descricao: "Contos", status: "emprestado", isbn: "989671234" },
-                { id: '3', titulo: "História Geral de Angola", autor: "Alberto Oliveira", categoria: "História", descricao: "Pré-colonial ao século XXI", status: "disponivel" },
-                { id: '4', titulo: "Fisiologia Vegetal", autor: "M. Cabral", categoria: "Ciência", descricao: "Ensino Secundário", status: "disponivel" }
-            ];
-            students = [
-                { id: 's1', nome: "Esperança dos Santos", matricula: "2024/ANG001", serie: "10ª Classe", email: "esperanca@escola.ao", multaTotal: 0, ativo: true },
-                { id: 's2', nome: "João Chimuco", matricula: "2024/ANG045", serie: "9ª Classe", email: "joao.c@escola.ao", multaTotal: 550, ativo: true }
-            ];
-            loans = [
-                { id: 'l1', estudanteId: 's2', livroId: '2', dataEmprestimo: '2025-02-10', dataPrevista: '2025-02-24', dataDevolucao: null, status: 'ativo', multa: 0 },
-                { id: 'l2', estudanteId: 's1', livroId: '1', dataEmprestimo: '2025-03-01', dataPrevista: '2025-03-15', dataDevolucao: null, status: 'ativo', multa: 0 }
-            ];
-            books.find(b=>b.id==='2').status = 'emprestado';
-            saveToLocal();
+        
+        function limparErros(formElement) {
+            formElement.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+            formElement.querySelectorAll('.form-error').forEach(el => el.remove());
         }
 
-        // helpers
-        function showToast(msg, icon='check-circle') { 
-            let toast = document.getElementById('toast'); 
-            let iconEl = toast.querySelector('i');
-            // map simple icon keywords to FontAwesome classes/colors
-            if(icon === 'exclamation') { iconEl.className = 'fas fa-exclamation-triangle text-yellow-400'; }
-            else { iconEl.className = 'fas fa-check-circle text-green-400'; }
-            document.getElementById('toastMessage').innerText = msg; 
-            toast.classList.remove('hidden'); 
-            setTimeout(()=>toast.classList.add('hidden'), 2500); 
+        function getUsers() { return JSON.parse(localStorage.getItem('biblioteca_usuarios') || '[]'); }
+        function saveUsers(users) { localStorage.setItem('biblioteca_usuarios', JSON.stringify(users)); }
+        function getCurrentUser() { return JSON.parse(localStorage.getItem('biblioteca_currentUser') || 'null'); }
+        function saveCurrentUser(user) { const { password, ...u } = user; localStorage.setItem('biblioteca_currentUser', JSON.stringify(u)); }
+        function getBooks() { return JSON.parse(localStorage.getItem('biblioteca_livros') || '[]'); }
+        function saveBooks(books) { localStorage.setItem('biblioteca_livros', JSON.stringify(books)); }
+        function getLoans() { return JSON.parse(localStorage.getItem('biblioteca_emprestimos') || '[]'); }
+        function saveLoans(loans) { localStorage.setItem('biblioteca_emprestimos', JSON.stringify(loans)); }
+        function getEstudantes() { return getUsers().filter(u => u.tipo === 'estudante'); }
+
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            const icons = { success: 'check-circle', error: 'exclamation-circle', warning: 'exclamation-triangle', info: 'info-circle' };
+            toast.innerHTML = `<i class="fas fa-${icons[type] || 'info-circle'}"></i><span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => { toast.style.opacity = '0'; toast.style.transition = 'opacity 0.3s ease'; setTimeout(() => toast.remove(), 300); }, 3500);
         }
 
-        function updateStats() {
-            document.getElementById('totalBooks').innerText = books.length;
-            const activeLoans = loans.filter(l=>l.status==='ativo').length;
-            document.getElementById('activeLoans').innerText = activeLoans;
-            let totalMulta = loans.reduce((acc,l)=>acc+(l.multa || 0),0) + students.reduce((acc,s)=>acc+(s.multaTotal||0),0);
-            document.getElementById('totalMultas').innerText = totalMulta;
-            document.getElementById('totalStudents').innerText = students.length;
-            if(document.getElementById('totalMultasDisplay')) document.getElementById('totalMultasDisplay').innerText = totalMulta + " Kz";
-            // livro popular
-            let loanCount = {}; loans.forEach(l=>{ let book = books.find(b=>b.id===l.livroId); if(book) loanCount[book.titulo] = (loanCount[book.titulo]||0)+1; });
-            let popular = Object.keys(loanCount).length ? Object.keys(loanCount).reduce((a,b)=>loanCount[a]>loanCount[b]?a:b) : "Nenhum";
-            document.getElementById('popularBook') && (document.getElementById('popularBook').innerText = popular);
-            let studentLoanCount = {}; loans.forEach(l=>{ if(l.status==='ativo') studentLoanCount[l.estudanteId] = (studentLoanCount[l.estudanteId]||0)+1; });
-            let topId = Object.keys(studentLoanCount).length ? Object.keys(studentLoanCount).reduce((a,b)=>studentLoanCount[a]>studentLoanCount[b]?a:b):null;
-            let topStudent = topId ? students.find(s=>s.id===topId)?.nome || '-' : '-';
-            document.getElementById('topStudent') && (document.getElementById('topStudent').innerText = topStudent);
+        function switchAuthTab(tab) {
+            document.getElementById('tabLogin').classList.toggle('active', tab === 'login');
+            document.getElementById('tabRegister').classList.toggle('active', tab === 'register');
+            document.getElementById('loginForm').classList.toggle('hidden', tab !== 'login');
+            document.getElementById('registerForm').classList.toggle('hidden', tab !== 'register');
         }
+        
+        function togglePassword(inputId, btn) {
+            const input = document.getElementById(inputId);
+            const icon = btn.querySelector('i');
+            input.type = input.type === 'password' ? 'text' : 'password';
+            icon.classList.toggle('fa-eye', input.type === 'password');
+            icon.classList.toggle('fa-eye-slash', input.type === 'text');
+        }
+        
+        function logout() {
+            localStorage.removeItem('biblioteca_currentUser');
+            document.getElementById('mainApp').classList.add('hidden');
+            document.getElementById('authScreen').style.display = 'flex';
+            document.getElementById('loginForm').reset();
+            document.getElementById('registerForm').reset();
+            switchAuthTab('login');
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const user = getUsers().find(u => u.email === email && u.password === password);
+            if (!user) { showToast('E-mail ou palavra-passe incorretos!', 'error'); return; }
+            if (user.status === 'inactivo') { showToast('Conta desativada. Contacte o gestor.', 'error'); return; }
+            saveCurrentUser(user);
+            document.getElementById('authScreen').style.display = 'none';
+            document.getElementById('mainApp').classList.remove('hidden');
+            inicializarInterfaceUsuario();
+            showSection('dashboard');
+            showToast(`Bem-vindo(a), ${user.nome}!`, 'success');
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            limparErros(this);
+            const nome = document.getElementById('regNome').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            const matricula = document.getElementById('regMatricula').value.trim();
+            const turma = document.getElementById('regTurma').value;
+            const telefone = document.getElementById('regTelefone').value.trim();
+            const password = document.getElementById('regPassword').value;
+            const passwordConfirm = document.getElementById('regPasswordConfirm').value;
+            let hasError = false;
+            
+            if (nome.length < 3) { mostrarErroCampo(document.getElementById('regNome'), 'Mínimo 3 caracteres'); hasError = true; }
+            if (!validarEmail(email)) { mostrarErroCampo(document.getElementById('regEmail'), 'E-mail inválido'); hasError = true; }
+            if (!validarEmailUnico(email)) { mostrarErroCampo(document.getElementById('regEmail'), 'E-mail já registado'); hasError = true; }
+            if (!matricula) { mostrarErroCampo(document.getElementById('regMatricula'), 'Obrigatório'); hasError = true; }
+            else if (!validarMatriculaUnica(matricula)) { mostrarErroCampo(document.getElementById('regMatricula'), 'Matrícula já existe'); hasError = true; }
+            if (!turma) { mostrarErroCampo(document.getElementById('regTurma'), 'Selecione a turma'); hasError = true; }
+            if (telefone && !validarTelefone(telefone)) { mostrarErroCampo(document.getElementById('regTelefone'), 'Formato: +244 9XX XXX XXX'); hasError = true; }
+            if (password.length < 6) { mostrarErroCampo(document.getElementById('regPassword'), 'Mínimo 6 caracteres'); hasError = true; }
+            if (password !== passwordConfirm) { mostrarErroCampo(document.getElementById('regPasswordConfirm'), 'Não coincidem'); hasError = true; }
+            if (hasError) return;
+            
+            const users = getUsers();
+            users.push({
+                id: Date.now(), nome, email, password, tipo: 'estudante', matricula, turma, telefone,
+                avatar: nome.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2),
+                status: 'activo', dataCriacao: new Date().toISOString().split('T')[0], ultimaModificacao: new Date().toISOString().split('T')[0]
+            });
+            saveUsers(users);
+            showToast('Conta criada! Faça login.', 'success');
+            switchAuthTab('login');
+            document.getElementById('loginEmail').value = email;
+            document.getElementById('registerForm').reset();
+        });
+
+        function inicializarInterfaceUsuario() {
+            const user = getCurrentUser();
+            if (!user) return;
+            document.getElementById('userName').textContent = user.nome;
+            document.getElementById('userRole').textContent = user.tipo === 'gestor' ? 'Gestor/Bibliotecário' : `${user.turma || ''} | Estudante`;
+            document.getElementById('userAvatar').textContent = user.avatar || 'U';
+            
+            const menuGestor = `
+                <a onclick="showSection('dashboard')" data-nav="dashboard" class="sidebar-link active"><i class="fas fa-chart-pie"></i><span>Painel Principal</span></a>
+                <a onclick="showSection('books')" data-nav="books" class="sidebar-link"><i class="fas fa-book"></i><span>Acervo</span></a>
+                <a onclick="showSection('loans')" data-nav="loans" class="sidebar-link"><i class="fas fa-hand-holding-heart"></i><span>Empréstimos</span></a>
+                <a onclick="showSection('students')" data-nav="students" class="sidebar-link"><i class="fas fa-users"></i><span>Estudantes</span></a>
+                <a onclick="showSection('reservations')" data-nav="reservations" class="sidebar-link"><i class="fas fa-calendar-check"></i><span>Reservas</span></a>
+                <a onclick="showSection('users')" data-nav="users" class="sidebar-link"><i class="fas fa-user-cog"></i><span>Utilizadores</span></a>
+                <a onclick="showSection('reports')" data-nav="reports" class="sidebar-link"><i class="fas fa-chart-bar"></i><span>Relatórios</span></a>
+                <hr class="sidebar-divider">
+                <a onclick="showSection('profile')" data-nav="profile" class="sidebar-link"><i class="fas fa-id-card"></i><span>Meu Perfil</span></a>
+            `;
+            
+            const menuEstudante = `
+                <a onclick="showSection('dashboard')" data-nav="dashboard" class="sidebar-link active"><i class="fas fa-home"></i><span>Meu Painel</span></a>
+                <a onclick="showSection('books')" data-nav="books" class="sidebar-link"><i class="fas fa-search"></i><span>Explorar Acervo</span></a>
+                <a onclick="showSection('loans')" data-nav="loans" class="sidebar-link"><i class="fas fa-bookmark"></i><span>Meus Empréstimos</span></a>
+                <hr class="sidebar-divider">
+                <a onclick="showSection('profile')" data-nav="profile" class="sidebar-link"><i class="fas fa-id-card"></i><span>Meu Perfil</span></a>
+            `;
+            
+            document.getElementById('sidebarMenu').innerHTML = user.tipo === 'gestor' ? menuGestor : menuEstudante;
+            document.getElementById('currentDate').textContent = new Date().toLocaleDateString('pt-AO', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            if (window.innerWidth >= 1024) document.getElementById('sidebar').classList.remove('sidebar-hidden');
+        }
+
+        function showSection(section) {
+            const user = getCurrentUser();
+            const titles = {
+                'dashboard': user?.tipo === 'estudante' ? 'Meu Painel' : 'Painel Principal',
+                'books': 'Acervo Bibliográfico', 'loans': user?.tipo === 'estudante' ? 'Meus Empréstimos' : 'Gestão de Empréstimos',
+                'students': 'Estudantes', 'reservations': 'Reservas', 'users': 'Gestão de Utilizadores',
+                'profile': 'Meu Perfil', 'reports': 'Relatórios'
+            };
+            document.getElementById('pageTitle').textContent = titles[section] || 'Biblioteca';
+            
+            document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+            const activeLink = document.querySelector(`[data-nav="${section}"]`);
+            if (activeLink) activeLink.classList.add('active');
+            
+            if (section === 'dashboard') renderDashboard();
+            if (section === 'books') renderBooksSection();
+            if (section === 'loans') renderLoansSection();
+            if (section === 'students') renderStudentsSection();
+            if (section === 'reservations') renderReservationsSection();
+            if (section === 'users') renderUsersSection();
+            if (section === 'profile') renderProfileSection();
+            if (section === 'reports') renderReportsSection();
+            
+            if (window.innerWidth < 1024) toggleSidebar(true);
+        }
+
+        function toggleSidebar(forceClose = false) {
+            if (window.innerWidth >= 1024) return;
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (forceClose || !sidebar.classList.contains('sidebar-hidden')) {
+                sidebar.classList.add('sidebar-hidden');
+                overlay.classList.add('hidden');
+            } else {
+                sidebar.classList.remove('sidebar-hidden');
+                overlay.classList.remove('hidden');
+            }
+        }
+
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth >= 1024) return;
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            if (overlay && !overlay.classList.contains('hidden') && !sidebar.contains(e.target) && e.target !== menuBtn && !menuBtn?.contains(e.target)) {
+                toggleSidebar(true);
+            }
+        });
 
         function renderDashboard() {
-            updateStats();
-            renderNotifications();
-            // chart js
-            const ctx = document.getElementById('loanChart')?.getContext('2d');
-            if(ctx && window.loanChartInstance) window.loanChartInstance.destroy();
-            let last7 = [...Array(7)].map((_,i)=>new Date(Date.now()-i*86400000).toISOString().slice(0,10)).reverse();
-            let counts = last7.map(day=> loans.filter(l=>l.dataEmprestimo === day).length);
-            if(ctx) window.loanChartInstance = new Chart(ctx, { type: 'bar', data: { labels: last7.map(d=>d.slice(5)), datasets: [{ label:'Empréstimos', data: counts, backgroundColor:'#3b82f6' }] } });
-        }
-
-        function renderNotifications() {
-            const notifDiv = document.getElementById('notificationsList');
-            if(!notifDiv) return;
-            let overdue = loans.filter(l=>l.status==='ativo' && new Date(l.dataPrevista) < new Date() && !l.dataDevolucao);
-            let html = overdue.map(l=>{ let student = students.find(s=>s.id===l.estudanteId); let book = books.find(b=>b.id===l.livroId); return `<div class="bg-red-50 p-2 rounded border-l-4 border-red-500"><p class="text-sm font-bold">⚠️ Atraso: ${student?.nome}</p><p class="text-xs">Livro: ${book?.titulo} | Venceu em ${l.dataPrevista}</p></div>`; }).slice(0,3);
-            if(html.length===0) html.push('<div class="text-gray-500 text-sm">📌 Sem notificações críticas</div>');
-            notifDiv.innerHTML = html.join('');
-        }
-
-        function renderBooks() {
-            const category = document.getElementById('categoryFilter')?.value;
-            const statusF = document.getElementById('statusFilter')?.value;
-            const gSearch = document.getElementById('globalSearch')?.value.toLowerCase() || '';
-            let filtered = books.filter(b => (!category || b.categoria === category) && (!statusF || b.status === statusF) && (gSearch === '' || b.titulo.toLowerCase().includes(gSearch) || (b.autor||'').toLowerCase().includes(gSearch) || (b.categoria||'').toLowerCase().includes(gSearch)));
-            const grid = document.getElementById('booksGrid');
-            if(filtered.length === 0){
-                grid.innerHTML = '<div class="bg-white rounded-xl shadow p-6 text-center text-gray-500">Nenhum livro encontrado.</div>';
-                return;
+            const user = getCurrentUser();
+            const books = getBooks();
+            const loans = getLoans();
+            const users = getUsers();
+            const estudantes = getEstudantes();
+            const mc = document.getElementById('mainContent');
+            
+            if (user.tipo === 'gestor') {
+                mc.innerHTML = `
+                    <div class="stats-grid">
+                        <div class="stat-card primary"><div class="stat-icon"><i class="fas fa-book"></i></div><div class="stat-value">${books.length}</div><div class="stat-label">Total de Livros</div></div>
+                        <div class="stat-card warning"><div class="stat-icon"><i class="fas fa-hand-holding-heart"></i></div><div class="stat-value">${loans.filter(l => !l.dataDevolucao).length}</div><div class="stat-label">Empréstimos Activos</div></div>
+                        <div class="stat-card danger"><div class="stat-icon"><i class="fas fa-coins"></i></div><div class="stat-value">${loans.reduce((s,l) => s + (l.multa||0), 0)} Kz</div><div class="stat-label">Multas Pendentes</div></div>
+                        <div class="stat-card info"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-value">${users.length}</div><div class="stat-label">Utilizadores (${estudantes.length} est.)</div></div>
+                    </div>
+                    <div class="dashboard-grid">
+                        <div class="content-card"><div class="content-card-header"><h3>📊 Visão Geral</h3></div><div class="content-card-body"><div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3);">${[{l:'Disponíveis',v:books.filter(b=>b.status==='disponivel').length,c:'var(--success-light)',t:'var(--success)'},{l:'Emprestados',v:books.filter(b=>b.status==='emprestado').length,c:'var(--warning-light)',t:'var(--warning)'},{l:'Reservados',v:books.filter(b=>b.status==='reservado').length,c:'var(--info-light)',t:'var(--info)'},{l:'Estudantes',v:estudantes.length,c:'var(--secondary-light)',t:'var(--secondary)'}].map(i=>`<div style="background:${i.c};padding:var(--space-3);border-radius:var(--radius-lg);text-align:center;"><div style="font-size:var(--text-2xl);font-weight:var(--font-extrabold);color:${i.t};">${i.v}</div><div style="font-size:var(--text-xs);color:var(--text-secondary);">${i.l}</div></div>`).join('')}</div></div></div>
+                        <div class="content-card"><div class="content-card-header"><h3>🔔 Notificações</h3></div><div class="content-card-body">${loans.filter(l=>!l.dataDevolucao&&l.multa>0).map(l=>`<div style="padding:var(--space-3);background:var(--danger-light);border-radius:var(--radius-lg);margin-bottom:var(--space-2);font-size:var(--text-xs);"><strong>${l.userName}</strong> - Multa: ${l.multa} Kz</div>`).join('')||'<p style="color:var(--text-tertiary);font-size:var(--text-sm);">Sem notificações</p>'}</div></div>
+                    </div>
+                `;
+            } else {
+                const meus = loans.filter(l => l.userId === user.id);
+                const ativos = meus.filter(l => !l.dataDevolucao);
+                const atrasados = ativos.filter(l => new Date(l.dataPrevista) < new Date());
+                const totalMultas = meus.reduce((s,l) => s + (l.multa||0), 0);
+                
+                mc.innerHTML = `
+                    <div class="stats-grid">
+                        <div class="stat-card primary"><div class="stat-icon"><i class="fas fa-book-open"></i></div><div class="stat-value">${ativos.length}</div><div class="stat-label">Emprestados agora</div></div>
+                        <div class="stat-card ${atrasados.length>0?'danger':'success'}"><div class="stat-icon"><i class="fas fa-clock"></i></div><div class="stat-value">${atrasados.length}</div><div class="stat-label">Em atraso</div></div>
+                        <div class="stat-card warning"><div class="stat-icon"><i class="fas fa-coins"></i></div><div class="stat-value">${totalMultas} Kz</div><div class="stat-label">Total de multas</div></div>
+                        <div class="stat-card info"><div class="stat-icon"><i class="fas fa-check-circle"></i></div><div class="stat-value">${meus.filter(l=>l.dataDevolucao).length}</div><div class="stat-label">Já devolvidos</div></div>
+                    </div>
+                    <div class="dashboard-grid">
+                        <div class="content-card"><div class="content-card-header"><h3>📚 Meus Empréstimos Activos</h3></div><div class="content-card-body">${ativos.length===0?'<p style="color:var(--text-tertiary);">Nenhum empréstimo activo.</p>':ativos.map(l=>{const dias=Math.ceil((new Date(l.dataPrevista)-new Date())/(1000*60*60*24));const atr=dias<0;return`<div style="padding:var(--space-3);border:1px solid ${atr?'var(--danger)':'var(--border-light)'};border-radius:var(--radius-lg);margin-bottom:var(--space-3);background:${atr?'var(--danger-light)':'var(--surface-primary)'};"><h4 style="font-weight:var(--font-bold);font-size:var(--text-sm);">${l.bookTitulo}</h4><p style="font-size:var(--text-xs);color:var(--text-secondary);">Devolver até: ${l.dataPrevista}</p><p style="font-size:var(--text-xs);color:${atr?'var(--danger)':'var(--success)'};font-weight:var(--font-semibold);">${atr?`⚠️ Atrasado ${Math.abs(dias)} dias!`:`⏳ ${dias} dias restantes`}</p>${l.multa?`<p style="font-size:var(--text-xs);color:var(--danger);font-weight:var(--font-bold);">💰 Multa: ${l.multa} Kz</p>`:''}</div>`}).join('')}</div></div>
+                        <div class="content-card"><div class="content-card-header"><h3>🔍 Disponíveis</h3></div><div class="content-card-body">${books.filter(b=>b.status==='disponivel').slice(0,5).map(b=>`<div style="padding:var(--space-2);border-bottom:1px solid var(--border-light);font-size:var(--text-xs);display:flex;justify-content:space-between;align-items:center;gap:var(--space-2);"><span><strong>${b.titulo}</strong> - ${b.autor}</span><span class="badge badge-success">Disp.</span></div>`).join('')||'<p style="color:var(--text-tertiary);">Nenhum disponível</p>'}</div></div>
+                    </div>
+                `;
             }
-            grid.innerHTML = filtered.map(b => {
-                const statusBadge = b.status==='disponivel' ? '<span class="badge-status bg-green-100 text-green-700">Disponível</span>' : (b.status==='reservado'? '<span class="badge-status bg-amber-100 text-amber-700">Reservado</span>' : '<span class="badge-status bg-red-100 text-red-700">Emprestado</span>');
-                const reserveBtn = b.status==='disponivel' ? `<button onclick="openReservationModal('${b.id}')" class="bg-amber-100 text-amber-800 px-3 py-1 rounded ml-2 text-xs">Reservar</button>` : '';
-                return `<div class="bg-white rounded-xl shadow p-4 book-card transition"><div class="flex justify-between"><i class="fas fa-book text-2xl text-blue-500"></i>${statusBadge}</div><h3 class="font-bold mt-2">${b.titulo}</h3><p class="text-sm text-gray-600">${b.autor}</p><p class="text-xs text-gray-500">${b.categoria}</p><div class="mt-3 flex items-center"><button onclick="deleteBook('${b.id}')" class="text-red-500 text-xs"><i class="far fa-trash-alt"></i> remover</button>${reserveBtn}</div></div>`;
-            }).join('');
         }
 
-        function renderStudents() { const search = document.getElementById('studentSearchInput')?.value.toLowerCase(); let filtered = students.filter(s=>s.nome.toLowerCase().includes(search||'') || s.matricula.toLowerCase().includes(search||'')); const grid = document.getElementById('studentsGrid'); if(filtered.length === 0){ grid.innerHTML = '<div class="bg-white rounded-xl shadow p-6 text-center text-gray-500">Nenhum estudante encontrado.</div>'; return; } grid.innerHTML = filtered.map(s=>`<div class="bg-white rounded-xl p-4 shadow"><div class="flex justify-between"><i class="fas fa-user-graduate text-purple-500 text-xl"></i><span class="text-xs font-bold">${s.matricula}</span></div><h3 class="font-bold">${s.nome}</h3><p class="text-sm">${s.serie || 'Turma não definida'}</p><p class="text-xs">Multa: ${s.multaTotal || 0} Kz</p><button onclick="deleteStudent('${s.id}')" class="text-red-500 text-xs mt-1">Excluir</button></div>`).join(''); }
-
-        function renderLoans() { const tbody = document.getElementById('loansTableBody'); if(loans.length === 0){ tbody.innerHTML = '<tr><td colspan="7" class="p-4 text-center text-gray-500">Nenhum empréstimo registado.</td></tr>'; return; } tbody.innerHTML = loans.map(l=>{ let student = students.find(s=>s.id===l.estudanteId); let book = books.find(b=>b.id===l.livroId); let multa = l.multa || (new Date(l.dataPrevista) < new Date() && !l.dataDevolucao ? 100 : 0); if(multa && !l.multa) { l.multa=multa; saveToLocal(); } return `<tr class="border-b"><td class="p-2">${student?.nome||'?'}</td><td>${book?.titulo||'?'}</td><td>${l.dataEmprestimo}</td><td>${l.dataPrevista}</td><td class="font-mono">${l.multa||0} Kz</td><td>${l.status==='ativo'? '<span class="bg-yellow-100 px-2 py-0.5 rounded-full text-xs">Activo</span>':'Devolvido'}</td><td>${l.status==='ativo'? `<button onclick="returnBook('${l.id}')" class="bg-green-600 text-white text-xs px-2 py-1 rounded">Devolver</button>`:'-'}</td></tr>`; }).join(''); }
-
-        function renderReservations() { const resDiv = document.getElementById('reservationsList'); if(reservations.length === 0){ resDiv.innerHTML = '<div class="bg-white rounded-xl shadow p-6 text-center text-gray-500">Nenhuma reserva registada.</div>'; return; } resDiv.innerHTML = reservations.map(r=>{ let student=students.find(s=>s.id===r.estudanteId); let book=books.find(b=>b.id===r.livroId); return `<div class="bg-white p-4 rounded-xl shadow flex justify-between"><div><p><strong>${student?.nome}</strong> reservou <em>${book?.titulo}</em></p><p class="text-xs">Data: ${r.dataReserva}</p></div><button onclick="confirmReservation('${r.id}')" class="bg-blue-500 text-white px-3 py-1 rounded text-sm">Converter em Empréstimo</button></div>`; }).join(''); }
-
-        // ações com confirmação
-        function deleteBook(id){
-            showConfirm('deleteBook', id, 'Remover livro', 'Deseja remover este livro permanentemente?');
-        }
-        function deleteStudent(id){
-            showConfirm('deleteStudent', id, 'Remover estudante', 'Deseja remover este estudante e todos os seus registos?');
-        }
-        function deleteBookConfirmed(id){ books = books.filter(b=>b.id!==id); // remover reservas e empréstimos relacionados
-            loans = loans.filter(l=>l.livroId!==id); reservations = reservations.filter(r=>r.livroId!==id); saveToLocal(); renderAll(); showToast("Livro removido"); }
-        function deleteStudentConfirmed(id){ students = students.filter(s=>s.id!==id); loans = loans.filter(l=>l.estudanteId!==id); reservations = reservations.filter(r=>r.estudanteId!==id); saveToLocal(); renderAll(); showToast("Estudante removido"); }
-        function returnBook(loanId) { let loan = loans.find(l=>l.id===loanId); if(loan) { let book = books.find(b=>b.id===loan.livroId); book.status = "disponivel"; loan.status = "devolvido"; loan.dataDevolucao = new Date().toISOString().slice(0,10); let atrasoDias = Math.max(0, Math.floor((new Date() - new Date(loan.dataPrevista))/(1000*3600*24))); let multaCalculada = atrasoDias * 50; loan.multa = multaCalculada; let estudante = students.find(s=>s.id===loan.estudanteId); if(estudante) estudante.multaTotal = (estudante.multaTotal||0)+multaCalculada; saveToLocal(); renderAll(); showToast(`Devolução registrada. Multa: ${multaCalculada} Kz`); } }
-        function confirmReservation(resId) { showConfirm('convertReservation', resId, 'Converter reserva', 'Converter reserva em empréstimo?'); }
-        function convertReservationConfirmed(resId){ let reservation = reservations.find(r=>r.id===resId); if(reservation && reservation.livroId){ let book = books.find(b=>b.id===reservation.livroId); if(book.status === 'reservado'){ book.status='emprestado'; let newLoan={ id: Date.now().toString(), estudanteId: reservation.estudanteId, livroId: reservation.livroId, dataEmprestimo: new Date().toISOString().slice(0,10), dataPrevista: new Date(Date.now()+7*86400000).toISOString().slice(0,10), status:'ativo', multa:0 }; loans.push(newLoan); reservations = reservations.filter(r=>r.id!==resId); saveToLocal(); renderAll(); showToast('Reserva convertida em empréstimo'); } } }
-
-        function renderAll() { renderDashboard(); renderBooks(); renderStudents(); renderLoans(); renderReservations(); populateDropdowns(); }
-        function showSection(section) { 
-            document.querySelectorAll('section[id$="Section"]').forEach(sec=>sec.classList.add('hidden'));
-            const target = document.getElementById(`${section}Section`);
-            if(target) target.classList.remove('hidden');
-            document.getElementById('pageTitle').innerText = {dashboard:"📊 Dashboard", books:"📚 Acervo", loans:"↪️ Empréstimos", students:"🎓 Corpo Discente", reservations:"📅 Reservas", reports:"📈 Relatórios"}[section]; 
-            // sidebar active
-            document.querySelectorAll('.sidebar-link').forEach(a=>{ a.classList.remove('active'); });
-            const link = document.querySelector(`.sidebar-link[data-nav="${section}"]`);
-            if(link) link.classList.add('active');
-        }
-        function openModal(id) { const modal = document.getElementById(id); if(!modal) return; if(id === 'loanModal' || id === 'reservationModal'){ populateDropdowns(); } modal.classList.remove('hidden'); const focusable = modal.querySelector('select, input, button, textarea'); if(focusable) focusable.focus(); }
-        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
-        function toggleSidebar() { const sidebar = document.getElementById('sidebar'); const overlay = document.getElementById('sidebarOverlay'); if(sidebar.classList.contains('hidden')){ sidebar.classList.remove('hidden'); overlay.classList.remove('hidden'); } else { sidebar.classList.add('hidden'); overlay.classList.add('hidden'); } }
-
-        // Form handlers
-        document.getElementById('addBookForm')?.addEventListener('submit',(e)=>{ e.preventDefault(); let newBook = { id: Date.now().toString(), titulo: document.getElementById('bookTitle').value, autor: document.getElementById('bookAuthor').value, categoria: document.getElementById('bookCategory').value, descricao: document.getElementById('bookDesc').value, status:'disponivel' }; books.push(newBook); saveToLocal(); renderAll(); closeModal('bookModal'); showToast("Livro adicionado ao acervo"); });
-        document.getElementById('addStudentForm')?.addEventListener('submit',(e)=>{ e.preventDefault(); let newStudent = { id: Date.now().toString(), nome: document.getElementById('studentName').value, matricula: document.getElementById('studentEnroll').value, serie: document.getElementById('studentClass').value, email: document.getElementById('studentEmail').value, multaTotal:0 }; students.push(newStudent); saveToLocal(); renderAll(); closeModal('studentModal'); showToast("Estudante registado"); });
-        document.getElementById('addLoanForm')?.addEventListener('submit',(e)=>{ e.preventDefault(); let studentId = document.getElementById('loanStudentSelect').value; let bookId = document.getElementById('loanBookSelect').value; if(!studentId) return showToast('Selecione um estudante', 'exclamation'); if(!bookId) return showToast('Selecione um livro', 'exclamation'); let book = books.find(b=>b.id===bookId); if(!book) return showToast('Livro inválido', 'exclamation'); if(book?.status !== 'disponivel') return showToast("Livro indisponível", "exclamation"); // criar empréstimo
-            book.status = 'emprestado'; let newLoan = { id: Date.now().toString(), estudanteId: studentId, livroId: bookId, dataEmprestimo: document.getElementById('loanDateInput').value || new Date().toISOString().slice(0,10), dataPrevista: new Date(Date.now()+14*86400000).toISOString().slice(0,10), status:'ativo', multa:0 }; loans.push(newLoan); saveToLocal(); renderAll(); closeModal('loanModal'); showToast("Empréstimo efectuado"); });
-
-        function populateDropdowns() { 
-            let studentSel = document.getElementById('loanStudentSelect'); 
-            if(studentSel) studentSel.innerHTML = '<option value="">Selecione</option>' + students.map(s=>`<option value="${s.id}">${s.nome} (${s.matricula})</option>`).join(''); 
-            let bookSel = document.getElementById('loanBookSelect'); 
-            if(bookSel) bookSel.innerHTML = '<option value="">Selecione livro</option>' + books.filter(b=>b.status==='disponivel').map(b=>`<option value="${b.id}">${b.titulo} - ${b.autor}</option>`).join(''); 
-            let resStudent = document.getElementById('reservationStudentSelect'); 
-            if(resStudent) resStudent.innerHTML = '<option value="">Selecione</option>' + students.map(s=>`<option value="${s.id}">${s.nome} (${s.matricula})</option>`).join('');
+        function renderBooksSection(filteredBooks = null) {
+            const books = filteredBooks || getBooks();
+            const user = getCurrentUser();
+            document.getElementById('mainContent').innerHTML = `
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-4);flex-wrap:wrap;gap:var(--space-3);">
+                    <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;">
+                        <select id="categoryFilter" class="form-input" style="width:auto;min-width:140px;"><option value="">Todas Categorias</option><option>Literatura Angolana</option><option>Ficção</option><option>História</option><option>Ciência</option><option>Didáticos</option></select>
+                        <select id="statusFilter" class="form-input" style="width:auto;min-width:130px;"><option value="">Todos Status</option><option value="disponivel">Disponível</option><option value="emprestado">Emprestado</option><option value="reservado">Reservado</option></select>
+                    </div>
+                    ${user?.tipo==='gestor'?`<button class="btn btn-primary" onclick="openBookModal()"><i class="fas fa-plus-circle"></i> Novo Livro</button>`:''}
+                </div>
+                <div class="books-grid">${books.map(b=>`<div class="book-card"><div class="book-cover"><i class="fas fa-book"></i></div><span class="book-status-badge"><span class="badge ${b.status==='disponivel'?'badge-success':b.status==='emprestado'?'badge-danger':'badge-warning'}">${b.status.charAt(0).toUpperCase()+b.status.slice(1)}</span></span><h3 class="book-title">${b.titulo}</h3><p class="book-author">✍️ ${b.autor}</p><span class="book-category">📂 ${b.categoria}</span>${b.descricao?`<p style="font-size:var(--text-xs);color:var(--text-tertiary);margin-top:var(--space-2);">${b.descricao}</p>`:''}<div class="book-actions">${b.status==='disponivel'?`<button class="btn btn-primary btn-sm" onclick="solicitarEmprestimo(${b.id})">${user?.tipo==='estudante'?'📖 Solicitar':'📌 Emprestar'}</button>`:''}${user?.tipo==='gestor'?`<button class="btn btn-ghost btn-sm" onclick="openBookModal(${b.id})">✏️ Editar</button>`:''}</div></div>`).join('')}</div>
+            `;
+            document.getElementById('categoryFilter')?.addEventListener('change', function() { renderBooksSection(this.value ? getBooks().filter(b => b.categoria === this.value) : null); });
+            document.getElementById('statusFilter')?.addEventListener('change', function() { renderBooksSection(this.value ? getBooks().filter(b => b.status === this.value) : null); });
         }
 
-        function escapeCsv(val){ if(val==null) return '""'; const s = String(val).replace(/"/g,'""'); return '"'+s+'"'; }
-        function exportToCSV(type){ let csvRows=[]; if(type==='loans'){ csvRows.push(["Estudante","Livro","Empréstimo","Devolução","Multa"]); loans.forEach(l=>{ let s=students.find(st=>st.id===l.estudanteId); let b=books.find(bk=>bk.id===l.livroId); csvRows.push([s?.nome, b?.titulo, l.dataEmprestimo, l.dataPrevista, l.multa]); }); } else { csvRows.push(["Título","Autor","Categoria","Status"]); books.forEach(b=>csvRows.push([b.titulo,b.autor,b.categoria,b.status])); } let csvContent = csvRows.map(row=>row.map(escapeCsv).join(",")).join("\n"); let blob=new Blob([csvContent],{type:"text/csv"}); let a=document.createElement("a"); a.href=URL.createObjectURL(blob); const stamp = new Date().toISOString().slice(0,19).replace(/[:T]/g,'-'); a.download=`biblioteca_${type}_${stamp}.csv`; a.click(); showToast("Relatório exportado"); }
+        function renderLoansSection() {
+            const user = getCurrentUser();
+            let loans = getLoans();
+            if (user.tipo === 'estudante') loans = loans.filter(l => l.userId === user.id);
+            document.getElementById('mainContent').innerHTML = `
+                <div class="content-card"><div class="table-container"><table><thead><tr><th>Estudante</th><th>Livro</th><th>Empréstimo</th><th>Devolução</th><th>Multa</th><th>Status</th>${user?.tipo==='gestor'?'<th>Ações</th>':''}</tr></thead><tbody>${loans.map(l=>`<tr><td>${l.userName||'N/A'}</td><td>${l.bookTitulo||'N/A'}</td><td>${l.dataEmprestimo}</td><td>${l.dataPrevista}</td><td style="color:var(--danger);font-weight:var(--font-bold);">${l.multa||0} Kz</td><td><span class="badge ${l.dataDevolucao?'badge-success':'badge-primary'}">${l.dataDevolucao?'✅ Dev.':'📖 Activo'}</span></td>${user?.tipo==='gestor'?`<td>${!l.dataDevolucao?`<button class="btn btn-success btn-sm" onclick="devolverLivro(${l.id})">Devolver</button>`:''}</td>`:''}</tr>`).join('')}</tbody></table></div></div>
+                ${user?.tipo==='gestor'?`<div style="margin-top:var(--space-4);"><button class="btn btn-primary" onclick="openLoanModal()"><i class="fas fa-plus-circle"></i> Novo Empréstimo</button></div>`:''}
+            `;
+        }
 
-        // modalI de confirmação reutilizável
-        function showConfirm(action, id, title, message){ const modal = document.getElementById('confirmModal'); if(!modal) return; modal.dataset.action = action; modal.dataset.targetId = id; document.getElementById('confirmTitle').innerText = title || 'Confirmação'; document.getElementById('confirmMessage').innerText = message || 'Deseja prosseguir?'; openModal('confirmModal'); document.getElementById('confirmModalBtn').focus(); }
-        document.getElementById('confirmModalBtn')?.addEventListener('click', ()=>{ const modal = document.getElementById('confirmModal'); const action = modal.dataset.action; const id = modal.dataset.targetId; closeModal('confirmModal'); if(action === 'deleteBook') deleteBookConfirmed(id); else if(action === 'deleteStudent') deleteStudentConfirmed(id); else if(action === 'convertReservation') convertReservationConfirmed(id); });
+        function renderStudentsSection() {
+            const estudantes = getEstudantes();
+            const user = getCurrentUser();
+            document.getElementById('mainContent').innerHTML = `
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-4);flex-wrap:wrap;gap:var(--space-3);">
+                    <input type="text" id="studentSearchInput" placeholder="Pesquisar..." class="form-input" style="max-width:100%;width:100%;">
+                    ${user?.tipo==='gestor'?`<button class="btn btn-primary" onclick="openStudentModal()"><i class="fas fa-user-plus"></i> Cadastrar</button>`:''}
+                </div>
+                <div class="students-grid" id="studentsGrid">${estudantes.map(s=>`<div class="student-card"><div class="student-avatar">${s.nome.split(' ').map(n=>n[0]).join('').substring(0,2)}</div><h3 class="student-name">${s.nome}</h3><p class="student-info">📋 ${s.matricula||'N/A'}</p><p class="student-info">🏫 ${s.turma||'N/A'}</p>${user?.tipo==='gestor'?`<button class="btn btn-ghost btn-sm" style="margin-top:var(--space-3);" onclick="openStudentModal(${s.id})">✏️ Editar</button>`:''}</div>`).join('')}</div>
+            `;
+            document.getElementById('studentSearchInput')?.addEventListener('input', function() {
+                const q = this.value.toLowerCase();
+                document.getElementById('studentsGrid').innerHTML = estudantes.filter(s => s.nome.toLowerCase().includes(q) || (s.matricula||'').toLowerCase().includes(q)).map(s=>`<div class="student-card"><div class="student-avatar">${s.nome.split(' ').map(n=>n[0]).join('').substring(0,2)}</div><h3 class="student-name">${s.nome}</h3><p class="student-info">📋 ${s.matricula||'N/A'}</p><p class="student-info">🏫 ${s.turma||'N/A'}</p></div>`).join('');
+            });
+        }
 
-        // fechar modais com Esc
-        document.addEventListener('keydown',(e)=>{ if(e.key === 'Escape'){ document.querySelectorAll('[id$="Modal"]').forEach(m=>{ if(!m.classList.contains('hidden')) closeModal(m.id); }); } });
+        function renderReservationsSection() {
+            const books = getBooks().filter(b => b.status === 'reservado');
+            document.getElementById('mainContent').innerHTML = `<div class="content-card"><div class="content-card-header"><h3>📅 Livros Reservados</h3></div><div class="content-card-body">${books.length===0?'<p style="color:var(--text-tertiary);">Nenhuma reserva.</p>':books.map(b=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:var(--space-3);border:1px solid var(--border-light);border-radius:var(--radius-lg);margin-bottom:var(--space-2);flex-wrap:wrap;gap:var(--space-2);"><div><h4 style="font-weight:var(--font-bold);font-size:var(--text-sm);">${b.titulo}</h4><p style="font-size:var(--text-xs);color:var(--text-secondary);">${b.autor}</p></div><span class="badge badge-warning">Reservado</span></div>`).join('')}</div></div>`;
+        }
 
-        // Ao abrir modal, focar primeiro input (simples)
-        // (o próprio openModal já lida com foco)
+        function renderUsersSection() {
+            const users = getUsers();
+            const cu = getCurrentUser();
+            document.getElementById('mainContent').innerHTML = `
+                <div class="content-card"><div style="padding:var(--space-4);border-bottom:1px solid var(--border-light);display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--space-2);"><h3 style="font-size:var(--text-lg);font-weight:var(--font-bold);">👥 Gestão de Utilizadores</h3><div style="display:flex;gap:var(--space-2);flex-wrap:wrap;"><button class="btn btn-primary btn-sm" onclick="openUserModal('estudante')"><i class="fas fa-user-graduate"></i> Estudante</button><button class="btn btn-success btn-sm" onclick="openUserModal('gestor')"><i class="fas fa-user-shield"></i> Gestor</button></div></div><div class="table-container"><table><thead><tr><th>Nome</th><th>E-mail</th><th>Tipo</th><th>Turma</th><th>Status</th><th>Ações</th></tr></thead><tbody>${users.map(u=>`<tr><td style="font-weight:var(--font-medium);">${u.nome}</td><td>${u.email}</td><td><span class="badge ${u.tipo==='gestor'?'badge-secondary':'badge-primary'}">${u.tipo==='gestor'?'Gestor':'Estud.'}</span></td><td>${u.turma||'—'}</td><td><span class="badge ${u.status==='activo'?'badge-success':'badge-danger'}">${u.status==='activo'?'Activo':'Inact.'}</span></td><td>${u.id!==cu?.id?`<div style="display:flex;gap:var(--space-1);"><button class="btn btn-ghost btn-sm" onclick="editarUtilizador(${u.id})"><i class="fas fa-edit"></i></button><button class="btn btn-danger btn-sm" onclick="removerUtilizador(${u.id})"><i class="fas fa-trash"></i></button></div>`:'<span style="color:var(--text-tertiary);font-size:var(--text-xs);">Você</span>'}</td></tr>`).join('')}</tbody></table></div></div>
+            `;
+        }
 
-        // reservation flow
-        function openReservationModal(bookId){ const modal = document.getElementById('reservationModal'); if(!modal) return; modal.dataset.bookId = bookId; document.getElementById('reservationBookTitle').innerText = books.find(b=>b.id===bookId)?.titulo || 'Livro'; // garantir selects atualizados
-            try{ populateDropdowns(); }catch(e){ console.error(e); }
-            openModal('reservationModal'); }
+        function renderProfileSection() {
+            const user = getCurrentUser();
+            if (!user) return;
+            document.getElementById('mainContent').innerHTML = `
+                <div style="max-width:40rem;margin:0 auto;"><div class="content-card"><div class="content-card-body"><div style="text-align:center;margin-bottom:var(--space-4);"><div class="user-avatar" style="width:4rem;height:4rem;font-size:var(--text-xl);margin:0 auto var(--space-3);">${user.avatar||'U'}</div><h2 style="font-size:var(--text-xl);font-weight:var(--font-bold);">${user.nome}</h2><p style="color:var(--text-secondary);font-size:var(--text-sm);">${user.tipo==='gestor'?'Gestor':`Estudante - ${user.turma||'N/A'}`}</p></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3);">${[{l:'📧 E-mail',v:user.email},{l:'👤 Tipo',v:user.tipo==='gestor'?'Gestor':'Estudante'},...user.tipo==='estudante'?[{l:'📋 Matrícula',v:user.matricula||'N/A'},{l:'🏫 Turma',v:user.turma||'N/A'},{l:'📞 Telefone',v:user.telefone||'N/A'}]:[],{l:'📅 Membro desde',v:user.dataCriacao||'N/A'},{l:'🟢 Status',v:user.status==='activo'?'✅ Activo':'❌ Inactivo'}].map(i=>`<div style="padding:var(--space-3);background:var(--gray-50);border-radius:var(--radius-lg);"><p style="font-size:var(--text-xs);color:var(--text-tertiary);">${i.l}</p><p style="font-weight:var(--font-medium);font-size:var(--text-sm);">${i.v}</p></div>`).join('')}</div><div style="display:flex;gap:var(--space-3);margin-top:var(--space-4);flex-wrap:wrap;"><button class="btn btn-primary flex-1 btn-sm" onclick="openEditProfileModal()"><i class="fas fa-edit"></i> Editar</button><button class="btn btn-ghost flex-1 btn-sm" onclick="openChangePasswordModal()"><i class="fas fa-lock"></i> Alterar Senha</button></div></div></div></div>
+            `;
+        }
 
-        document.getElementById('addReservationForm')?.addEventListener('submit',(e)=>{ e.preventDefault(); const studentId = document.getElementById('reservationStudentSelect').value; const bookId = document.getElementById('reservationModal').dataset.bookId; if(!studentId) return showToast('Selecione estudante', 'exclamation'); if(!bookId) return showToast('Livro não identificado', 'exclamation'); const book = books.find(b=>b.id===bookId); if(!book || book.status!=='disponivel') return showToast('Livro indisponível', 'exclamation'); // marcar reservado
-            book.status='reservado'; const newRes = { id: Date.now().toString(), estudanteId: studentId, livroId: bookId, dataReserva: new Date().toISOString().slice(0,10) }; reservations.push(newRes); saveToLocal(); renderAll(); closeModal('reservationModal'); showToast('Reserva registada'); });
+        function renderReportsSection() {
+            const books = getBooks();
+            const loans = getLoans();
+            const users = getUsers();
+            const popularBook = [...books].sort((a,b)=>loans.filter(l=>l.bookId===b.id).length-loans.filter(l=>l.bookId===a.id).length)[0];
+            const topStudent = [...users.filter(u=>u.tipo==='estudante')].sort((a,b)=>loans.filter(l=>l.userId===b.id).length-loans.filter(l=>l.userId===a.id).length)[0];
+            document.getElementById('mainContent').innerHTML = `
+                <div class="dashboard-grid"><div class="content-card"><div class="content-card-header"><h3>📊 Exportar</h3></div><div class="content-card-body" style="display:flex;flex-direction:column;gap:var(--space-2);"><button class="btn btn-success w-full btn-sm" onclick="exportToCSV('loans')"><i class="fas fa-file-csv"></i> Empréstimos</button><button class="btn btn-primary w-full btn-sm" onclick="exportToCSV('books')"><i class="fas fa-file-csv"></i> Acervo</button><button class="btn btn-ghost w-full btn-sm" onclick="exportToCSV('users')"><i class="fas fa-file-csv"></i> Utilizadores</button></div></div><div class="content-card"><div class="content-card-header"><h3>📌 Estatísticas</h3></div><div class="content-card-body"><ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-2);"><li style="padding:var(--space-3);background:var(--primary-light);border-radius:var(--radius-lg);font-size:var(--text-xs);"><strong>📘 +Lido:</strong> ${popularBook?popularBook.titulo:'—'}</li><li style="padding:var(--space-3);background:var(--success-light);border-radius:var(--radius-lg);font-size:var(--text-xs);"><strong>🧑‍🎓 +Ativo:</strong> ${topStudent?topStudent.nome:'—'}</li><li style="padding:var(--space-3);background:var(--warning-light);border-radius:var(--radius-lg);font-size:var(--text-xs);"><strong>💰 Multas:</strong> ${loans.reduce((s,l)=>s+(l.multa||0),0)} Kz</li></ul></div></div></div>
+            `;
+        }
+
+        function solicitarEmprestimo(bookId) {
+            const user = getCurrentUser();
+            const books = getBooks();
+            const book = books.find(b => b.id === bookId);
+            if (!book || book.status !== 'disponivel') { showToast('Livro não disponível!', 'error'); return; }
+            if (user.tipo === 'estudante') {
+                const loans = getLoans();
+                const hoje = new Date();
+                const dataPrevista = new Date(hoje); dataPrevista.setDate(dataPrevista.getDate() + 14);
+                loans.push({ id: Date.now(), userId: user.id, userName: user.nome, bookId: book.id, bookTitulo: book.titulo, dataEmprestimo: hoje.toISOString().split('T')[0], dataPrevista: dataPrevista.toISOString().split('T')[0], dataDevolucao: null, multa: 0 });
+                saveLoans(loans); book.status = 'emprestado'; saveBooks(books);
+                showToast(`Empréstimo OK! Devolver até ${dataPrevista.toLocaleDateString('pt-AO')}`, 'success');
+                renderBooksSection(); updateNotifBadge();
+            } else { openLoanModal(bookId); }
+        }
         
-        function login(e) { e.preventDefault(); let email=document.getElementById('loginEmail').value; let pass=document.getElementById('loginPassword').value; if(email==="admin@kixikubula.ao" && pass==="Angola2025!"){ document.getElementById('loginScreen').classList.add('hidden'); document.getElementById('mainApp').classList.remove('hidden'); loadFromLocal(); setInterval(()=>{ let today=new Date(); document.getElementById('currentDate').innerHTML = today.toLocaleDateString('pt-AO',{day:'numeric',month:'long',year:'numeric'}) + " ⏱️ "+ today.toLocaleTimeString('pt-AO').slice(0,5); },1000); } else alert("Credenciais inválidas. Use admin@kixikubula.ao / Angola2025!"); }
-        function logout() { document.getElementById('loginScreen').classList.remove('hidden'); document.getElementById('mainApp').classList.add('hidden'); }
-        document.getElementById('loginForm')?.addEventListener('submit', login);
-        window.showSection=showSection; window.openModal=openModal; window.closeModal=closeModal; window.returnBook=returnBook; window.deleteBook=deleteBook; window.deleteStudent=deleteStudent; window.confirmReservation=confirmReservation; window.logout=logout; window.exportToCSV=exportToCSV;
+        function devolverLivro(loanId) {
+            if (!confirm('Confirmar devolução?')) return;
+            const loans = getLoans(); const loan = loans.find(l => l.id === loanId);
+            if (!loan) return;
+            const hoje = new Date();
+            const diasAtraso = Math.ceil((hoje - new Date(loan.dataPrevista)) / (1000 * 60 * 60 * 24));
+            if (diasAtraso > 0) { loan.multa = diasAtraso * 50; showToast(`Devolvido c/ atraso. Multa: ${loan.multa} Kz`, 'warning'); }
+            else { showToast('Livro devolvido!', 'success'); }
+            loan.dataDevolucao = hoje.toISOString().split('T')[0]; saveLoans(loans);
+            const book = getBooks().find(b => b.id === loan.bookId);
+            if (book) { book.status = 'disponivel'; saveBooks(books); }
+            renderLoansSection(); updateNotifBadge();
+        }
 
-        // filtros e pesquisas
-        document.getElementById('categoryFilter')?.addEventListener('change', renderBooks);
-        document.getElementById('statusFilter')?.addEventListener('change', renderBooks);
-        document.getElementById('globalSearch')?.addEventListener('input', ()=>{
-            if(!document.getElementById('booksSection').classList.contains('hidden')) renderBooks();
-            if(!document.getElementById('studentsSection').classList.contains('hidden')){ document.getElementById('studentSearchInput').value = document.getElementById('globalSearch').value; renderStudents(); }
+        function exportToCSV(type) {
+            let data = [], filename = '';
+            if (type === 'loans') { data = getLoans(); filename = 'emprestimos.csv'; }
+            else if (type === 'books') { data = getBooks(); filename = 'acervo.csv'; }
+            else if (type === 'users') { data = getUsers().map(u=>({nome:u.nome,email:u.email,tipo:u.tipo,turma:u.turma||'',matricula:u.matricula||'',telefone:u.telefone||'',status:u.status})); filename = 'utilizadores.csv'; }
+            if (data.length === 0) { showToast('Sem dados!', 'warning'); return; }
+            const headers = Object.keys(data[0]);
+            const csv = ['\uFEFF'+headers.join(','), ...data.map(r=>headers.map(h=>`"${(r[h]||'').toString().replace(/"/g,'""')}"`).join(','))].join('\n');
+            const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url);
+            showToast(`Exportado: ${filename}`, 'success');
+        }
+
+        function updateNotifBadge() {
+            const loans = getLoans(); const user = getCurrentUser(); let count = 0;
+            if (user?.tipo === 'gestor') count = loans.filter(l => !l.dataDevolucao && l.multa > 0).length;
+            else if (user?.tipo === 'estudante') count = loans.filter(l => l.userId === user.id && !l.dataDevolucao && new Date(l.dataPrevista) < new Date()).length;
+            const badge = document.getElementById('notifBadge');
+            if (badge) { badge.textContent = count; badge.style.display = count > 0 ? 'flex' : 'none'; }
+        }
+
+        function openBookModal(bookId = null) {
+            const books = getBooks(); const book = bookId ? books.find(b => b.id === bookId) : null;
+            const modal = document.createElement('div'); modal.className = 'modal-overlay';
+            modal.innerHTML = `<div class="modal-container"><div class="modal-header"><h3>${book?'✏️ Editar':'📗 Novo'} Livro</h3><button class="modal-close" onclick="this.closest('.modal-overlay').remove()"><i class="fas fa-times"></i></button></div><div class="modal-body"><form id="bookForm"><input type="hidden" id="bookEditId" value="${book?.id||''}"><div class="form-group"><label>Título <span class="required">*</span></label><input class="form-input" id="bookTitle" value="${book?.titulo||''}" required></div><div class="form-group"><label>Autor <span class="required">*</span></label><input class="form-input" id="bookAuthor" value="${book?.autor||''}" required></div><div class="form-group"><label>Categoria</label><select class="form-input" id="bookCategory">${['Literatura Angolana','Ficção','História','Ciência','Didáticos'].map(c=>`<option ${book?.categoria===c?'selected':''}>${c}</option>`).join('')}</select></div><div class="form-group"><label>Descrição</label><textarea class="form-input" id="bookDesc" rows="2">${book?.descricao||''}</textarea></div><div class="modal-footer"><button type="button" class="btn btn-ghost btn-sm" onclick="this.closest('.modal-overlay').remove()">Cancelar</button><button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> ${book?'Atualizar':'Registar'}</button></div></form></div></div>`;
+            document.body.appendChild(modal);
+            modal.addEventListener('click', function(e) { if (e.target === modal) modal.remove(); });
+            modal.querySelector('#bookForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const books = getBooks(); const editId = document.getElementById('bookEditId').value;
+                const data = { titulo: document.getElementById('bookTitle').value, autor: document.getElementById('bookAuthor').value, categoria: document.getElementById('bookCategory').value, descricao: document.getElementById('bookDesc').value };
+                if (editId) { const i = books.findIndex(b => b.id === parseInt(editId)); if (i !== -1) books[i] = { ...books[i], ...data }; showToast('Atualizado!', 'success'); }
+                else { books.push({ id: Date.now(), ...data, status: 'disponivel' }); showToast('Registado!', 'success'); }
+                saveBooks(books); modal.remove(); renderBooksSection();
+            });
+        }
+
+        function openLoanModal(bookId = null) {
+            const estudantes = getEstudantes(); const books = getBooks().filter(b => b.status === 'disponivel' || b.id === bookId);
+            const modal = document.createElement('div'); modal.className = 'modal-overlay';
+            modal.innerHTML = `<div class="modal-container"><div class="modal-header"><h3>📌 Novo Empréstimo</h3><button class="modal-close" onclick="this.closest('.modal-overlay').remove()"><i class="fas fa-times"></i></button></div><div class="modal-body"><form id="loanForm"><div class="form-group"><label>Estudante <span class="required">*</span></label><select class="form-input" id="loanStudent" required><option value="">Selecione...</option>${estudantes.map(s=>`<option value="${s.id}">${s.nome} (${s.turma||'N/A'})</option>`).join('')}</select></div><div class="form-group"><label>Livro <span class="required">*</span></label><select class="form-input" id="loanBook" required><option value="">Selecione...</option>${books.map(b=>`<option value="${b.id}" ${b.id===bookId?'selected':''}>${b.titulo} - ${b.autor}</option>`).join('')}</select></div><div class="form-group"><label>Data</label><input type="date" class="form-input" id="loanDate" value="${new Date().toISOString().split('T')[0]}"></div><div class="modal-footer"><button type="button" class="btn btn-ghost btn-sm" onclick="this.closest('.modal-overlay').remove()">Cancelar</button><button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-hand-holding-heart"></i> Emprestar</button></div></form></div></div>`;
+            document.body.appendChild(modal);
+            modal.addEventListener('click', function(e) { if (e.target === modal) modal.remove(); });
+            modal.querySelector('#loanForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const userId = parseInt(document.getElementById('loanStudent').value);
+                const bookId = parseInt(document.getElementById('loanBook').value);
+                if (!userId || !bookId) { showToast('Selecione!', 'error'); return; }
+                const user = getUsers().find(u => u.id === userId);
+                const book = getBooks().find(b => b.id === bookId);
+                if (!book || book.status !== 'disponivel') { showToast('Indisponível!', 'error'); return; }
+                const dataPrevista = new Date(document.getElementById('loanDate').value);
+                dataPrevista.setDate(dataPrevista.getDate() + 14);
+                const loans = getLoans();
+                loans.push({ id: Date.now(), userId, userName: user?.nome||'Desconhecido', bookId, bookTitulo: book.titulo, dataEmprestimo: document.getElementById('loanDate').value, dataPrevista: dataPrevista.toISOString().split('T')[0], dataDevolucao: null, multa: 0 });
+                saveLoans(loans); book.status = 'emprestado'; saveBooks(books);
+                modal.remove(); renderLoansSection(); updateNotifBadge();
+                showToast('Empréstimo OK!', 'success');
+            });
+        }
+
+        function openStudentModal(studentId = null) {
+            const users = getUsers(); const student = studentId ? users.find(u => u.id === studentId) : null;
+            const modal = document.createElement('div'); modal.className = 'modal-overlay';
+            modal.innerHTML = `<div class="modal-container"><div class="modal-header"><h3>${student?'✏️ Editar':'👨‍🎓 Cadastrar'} Aluno</h3><button class="modal-close" onclick="this.closest('.modal-overlay').remove()"><i class="fas fa-times"></i></button></div><div class="modal-body"><form id="studentForm"><input type="hidden" id="studentEditId" value="${student?.id||''}">${['Nome','studentNome',student?.nome||'','text'],['Matrícula','studentMatricula',student?.matricula||'','text'],['Turma','studentTurma',student?.turma||'','select'],['E-mail','studentEmail',student?.email||'','email'],['Telefone','studentTelefone',student?.telefone||'','tel'].map(([l,id,val,type])=>`<div class="form-group"><label>${l} ${l!=='Telefone'?'<span class="required">*</span>':''}</label>${type==='select'?`<select class="form-input" id="${id}" required><option value="">Selecione...</option>${['7ª','8ª','9ª','10ª','11ª','12ª'].map(c=>`<option ${val===c+' Classe'?'selected':''}>${c} Classe</option>`).join('')}</select>`:`<input type="${type}" class="form-input" id="${id}" value="${val}" ${l!=='Telefone'?'required':''}>`}</div>`).join('')}<div class="modal-footer"><button type="button" class="btn btn-ghost btn-sm" onclick="this.closest('.modal-overlay').remove()">Cancelar</button><button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> ${student?'Atualizar':'Cadastrar'}</button></div></form></div></div>`;
+            document.body.appendChild(modal);
+            modal.addEventListener('click', function(e) { if (e.target === modal) modal.remove(); });
+            modal.querySelector('#studentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const users = getUsers(); const editId = document.getElementById('studentEditId').value;
+                const data = { nome: document.getElementById('studentNome').value, matricula: document.getElementById('studentMatricula').value, turma: document.getElementById('studentTurma').value, email: document.getElementById('studentEmail').value, telefone: document.getElementById('studentTelefone').value };
+                if (editId) { const i = users.findIndex(u => u.id === parseInt(editId)); if (i !== -1) Object.assign(users[i], data, { ultimaModificacao: new Date().toISOString().split('T')[0] }); showToast('Atualizado!', 'success'); }
+                else { users.push({ id: Date.now(), ...data, password: '123456', tipo: 'estudante', avatar: data.nome.split(' ').map(n=>n[0]).join('').toUpperCase().substring(0,2), status: 'activo', dataCriacao: new Date().toISOString().split('T')[0], ultimaModificacao: new Date().toISOString().split('T')[0] }); showToast('Cadastrado! Senha: 123456', 'success'); }
+                saveUsers(users); modal.remove(); renderStudentsSection();
+            });
+        }
+
+        function openUserModal(modo) {
+            const modal = document.createElement('div'); modal.className = 'modal-overlay';
+            modal.innerHTML = `<div class="modal-container"><div class="modal-header"><h3>${modo==='gestor'?'👨‍💼 Novo Gestor':'📚 Novo Estudante'}</h3><button class="modal-close" onclick="this.closest('.modal-overlay').remove()"><i class="fas fa-times"></i></button></div><div class="modal-body"><form id="userForm"><input type="hidden" id="userModalMode" value="${modo}"><div style="background:${modo==='gestor'?'var(--secondary-light)':'var(--primary-light)'};padding:var(--space-3);border-radius:var(--radius-lg);margin-bottom:var(--space-3);text-align:center;font-weight:var(--font-semibold);font-size:var(--text-sm);">${modo==='gestor'?'👨‍💼 Gestor':'📚 Estudante'}</div><div class="form-group"><label>Nome <span class="required">*</span></label><input class="form-input" id="userNome" required minlength="3"></div><div class="form-group"><label>E-mail <span class="required">*</span></label><input type="email" class="form-input" id="userEmail" required></div><div class="form-group"><label>Palavra-passe <span class="required">*</span></label><input type="password" class="form-input" id="userPassword" required minlength="6"></div><div id="userCamposEstudante">${['Matrícula','userMatricula','text'],['Turma','userTurma','select'],['Telefone','userTelefone','tel'].map(([l,id,t])=>`<div class="form-group"><label>${l} ${l!=='Telefone'?'<span class="required">*</span>':''}</label>${t==='select'?`<select class="form-input" id="${id}" ${l!=='Telefone'?'required':''}><option value="">Selecione...</option>${['7ª','8ª','9ª','10ª','11ª','12ª'].map(c=>`<option>${c} Classe</option>`).join('')}</select>`:`<input type="${t}" class="form-input" id="${id}" ${l!=='Telefone'?'required':''}>`}</div>`).join('')}</div><div class="form-group"><label>Status</label><select class="form-input" id="userStatus"><option value="activo">✅ Activo</option><option value="inactivo">❌ Inactivo</option></select></div><div class="modal-footer"><button type="button" class="btn btn-ghost btn-sm" onclick="this.closest('.modal-overlay').remove()">Cancelar</button><button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Criar</button></div></form></div></div>`;
+            document.body.appendChild(modal);
+            modal.addEventListener('click', function(e) { if (e.target === modal) modal.remove(); });
+            const campos = modal.querySelector('#userCamposEstudante');
+            if (modo === 'gestor') campos.style.display = 'none';
+            modal.querySelector('#userForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const modo = document.getElementById('userModalMode').value;
+                const nome = document.getElementById('userNome').value.trim();
+                const email = document.getElementById('userEmail').value.trim();
+                const password = document.getElementById('userPassword').value;
+                if (!validarEmail(email)) { showToast('E-mail inválido!', 'error'); return; }
+                if (!validarEmailUnico(email)) { showToast('E-mail já existe!', 'error'); return; }
+                if (password.length < 6) { showToast('Senha: mín. 6 caracteres!', 'error'); return; }
+                const users = getUsers();
+                const newUser = { id: Date.now(), nome, email, password, tipo: modo, avatar: nome.split(' ').map(n=>n[0]).join('').toUpperCase().substring(0,2), status: document.getElementById('userStatus').value, dataCriacao: new Date().toISOString().split('T')[0], ultimaModificacao: new Date().toISOString().split('T')[0] };
+                if (modo === 'estudante') { newUser.matricula = document.getElementById('userMatricula').value; newUser.turma = document.getElementById('userTurma').value; newUser.telefone = document.getElementById('userTelefone').value; }
+                users.push(newUser); saveUsers(users); modal.remove(); renderUsersSection();
+                showToast(`${modo==='gestor'?'Gestor':'Estudante'} criado!`, 'success');
+            });
+        }
+
+        function editarUtilizador(userId) { showToast('Edição em desenvolvimento.', 'info'); }
+        
+        function removerUtilizador(userId) {
+            const user = getUsers().find(u => u.id === userId);
+            if (!user) return;
+            if (user.id === getCurrentUser()?.id) { showToast('Não pode remover-se!', 'error'); return; }
+            if (!confirm(`Remover "${user.nome}"?`)) return;
+            if (getLoans().some(l => l.userId === userId && !l.dataDevolucao)) { showToast('Tem empréstimos activos!', 'error'); return; }
+            saveUsers(getUsers().filter(u => u.id !== userId));
+            if (!confirm('Manter histórico?')) saveLoans(getLoans().filter(l => l.userId !== userId));
+            renderUsersSection(); showToast('Removido!', 'success');
+        }
+
+        function openEditProfileModal() {
+            const user = getCurrentUser(); if (!user) return;
+            const modal = document.createElement('div'); modal.className = 'modal-overlay';
+            modal.innerHTML = `<div class="modal-container"><div class="modal-header"><h3>✏️ Editar Perfil</h3><button class="modal-close" onclick="this.closest('.modal-overlay').remove()"><i class="fas fa-times"></i></button></div><div class="modal-body"><form id="editProfileForm"><div class="form-group"><label>Nome</label><input class="form-input" id="editNome" value="${user.nome}" required></div><div class="form-group"><label>E-mail</label><input type="email" class="form-input" id="editEmail" value="${user.email}" required></div>${user.tipo==='estudante'?`<div class="form-group"><label>Telefone</label><input type="tel" class="form-input" id="editTelefone" value="${user.telefone||''}"></div>`:''}<div class="modal-footer"><button type="button" class="btn btn-ghost btn-sm" onclick="this.closest('.modal-overlay').remove()">Cancelar</button><button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Guardar</button></div></form></div></div>`;
+            document.body.appendChild(modal);
+            modal.addEventListener('click', function(e) { if (e.target === modal) modal.remove(); });
+            modal.querySelector('#editProfileForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const users = getUsers(); const i = users.findIndex(u => u.id === user.id);
+                if (i !== -1) {
+                    users[i].nome = document.getElementById('editNome').value;
+                    users[i].email = document.getElementById('editEmail').value;
+                    if (user.tipo === 'estudante') users[i].telefone = document.getElementById('editTelefone').value;
+                    users[i].ultimaModificacao = new Date().toISOString().split('T')[0];
+                    saveUsers(users); saveCurrentUser(users[i]);
+                    modal.remove(); inicializarInterfaceUsuario(); renderProfileSection();
+                    showToast('Perfil atualizado!', 'success');
+                }
+            });
+        }
+
+        function openChangePasswordModal() {
+            const modal = document.createElement('div'); modal.className = 'modal-overlay';
+            modal.innerHTML = `<div class="modal-container"><div class="modal-header"><h3>🔒 Alterar Senha</h3><button class="modal-close" onclick="this.closest('.modal-overlay').remove()"><i class="fas fa-times"></i></button></div><div class="modal-body"><form id="changePasswordForm"><div class="form-group"><label>Senha atual</label><input type="password" class="form-input" id="currentPwd" required></div><div class="form-group"><label>Nova senha</label><input type="password" class="form-input" id="newPwd" required minlength="6"></div><div class="form-group"><label>Confirmar</label><input type="password" class="form-input" id="confirmPwd" required></div><div class="modal-footer"><button type="button" class="btn btn-ghost btn-sm" onclick="this.closest('.modal-overlay').remove()">Cancelar</button><button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-lock"></i> Atualizar</button></div></form></div></div>`;
+            document.body.appendChild(modal);
+            modal.addEventListener('click', function(e) { if (e.target === modal) modal.remove(); });
+            modal.querySelector('#changePasswordForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const user = getCurrentUser(); const users = getUsers();
+                const fullUser = users.find(u => u.id === user.id);
+                const current = document.getElementById('currentPwd').value;
+                const newPwd = document.getElementById('newPwd').value;
+                const confirm = document.getElementById('confirmPwd').value;
+                if (current !== fullUser.password) { showToast('Senha atual incorreta!', 'error'); return; }
+                if (newPwd.length < 6) { showToast('Mínimo 6 caracteres!', 'error'); return; }
+                if (newPwd !== confirm) { showToast('Não coincidem!', 'error'); return; }
+                fullUser.password = newPwd; fullUser.ultimaModificacao = new Date().toISOString().split('T')[0];
+                saveUsers(users); modal.remove();
+                showToast('Senha alterada!', 'success');
+            });
+        }
+
+        document.getElementById('globalSearch')?.addEventListener('input', function() {
+            const q = this.value.toLowerCase().trim();
+            if (q.length < 2) return;
+            renderBooksSection(getBooks().filter(b => b.titulo.toLowerCase().includes(q) || b.autor.toLowerCase().includes(q)));
+            document.getElementById('pageTitle').textContent = 'Acervo Bibliográfico';
         });
-        document.getElementById('studentSearchInput')?.addEventListener('input', renderStudents);
+
+        // ============ INICIALIZAÇÃO CORRIGIDA ============
+        function inicializarDadosDemo() {
+            let users = getUsers();
+            
+            // Garantir que o gestor padrão Zinho@gmail.com existe SEMPRE
+            const gestorExiste = users.some(u => u.email === 'Zinho@gmail.com' && u.tipo === 'gestor');
+            if (!gestorExiste) {
+                // Remove qualquer gestor antigo com email diferente
+                users = users.filter(u => !(u.tipo === 'gestor' && u.email !== 'Zinho@gmail.com' && u.id <= 3));
+                // Adiciona o gestor correto
+                users.push({
+                    id: 1,
+                    nome: 'Gestor Escolar',
+                    email: 'Zinho@gmail.com',
+                    password: 'Angola2025!',
+                    tipo: 'gestor',
+                    avatar: 'GE',
+                    status: 'activo',
+                    dataCriacao: '2024-01-01',
+                    ultimaModificacao: '2024-06-13'
+                });
+                saveUsers(users);
+            }
+            
+            // Garantir estudantes demo
+            if (!users.some(u => u.email === 'maria@escola.ao')) {
+                users.push({
+                    id: 2, nome: 'Maria João', email: 'maria@escola.ao', password: '123456', tipo: 'estudante',
+                    matricula: '2024001', turma: '12ª Classe', telefone: '+244 923 456 789', avatar: 'MJ',
+                    status: 'activo', dataCriacao: '2024-01-15', ultimaModificacao: '2024-01-15'
+                });
+            }
+            if (!users.some(u => u.email === 'pedro@escola.ao')) {
+                users.push({
+                    id: 3, nome: 'Pedro Kikumba', email: 'pedro@escola.ao', password: '123456', tipo: 'estudante',
+                    matricula: '2024002', turma: '11ª Classe', telefone: '+244 912 345 678', avatar: 'PK',
+                    status: 'activo', dataCriacao: '2024-01-20', ultimaModificacao: '2024-01-20'
+                });
+            }
+            saveUsers(users);
+            
+            // Livros demo
+            if (getBooks().length === 0) {
+                saveBooks([
+                    { id: 1, titulo: 'Mayombe', autor: 'Pepetela', categoria: 'Literatura Angolana', status: 'disponivel', descricao: 'Romance sobre a guerrilha angolana' },
+                    { id: 2, titulo: 'A Geração da Utopia', autor: 'Pepetela', categoria: 'Literatura Angolana', status: 'emprestado', descricao: 'Pós-independência de Angola' },
+                    { id: 3, titulo: 'O Vendedor de Passados', autor: 'José Eduardo Agualusa', categoria: 'Ficção', status: 'disponivel', descricao: 'Memória e identidade angolana' },
+                    { id: 4, titulo: 'Niketche', autor: 'Paulina Chiziane', categoria: 'Ficção', status: 'disponivel', descricao: 'Poligamia e cultura moçambicana' },
+                    { id: 5, titulo: 'História de Angola', autor: 'Alberto Oliveira Pinto', categoria: 'História', status: 'reservado', descricao: 'Do pré-colonial à independência' },
+                    { id: 6, titulo: 'Biologia 12ª Classe', autor: 'Ministério da Educação', categoria: 'Didáticos', status: 'disponivel', descricao: 'Manual escolar oficial' }
+                ]);
+            }
+            
+            // Empréstimo demo
+            if (getLoans().length === 0) {
+                saveLoans([{ id: 1, userId: 3, userName: 'Pedro Kikumba', bookId: 2, bookTitulo: 'A Geração da Utopia', dataEmprestimo: '2024-01-15', dataPrevista: '2024-01-29', dataDevolucao: null, multa: 500 }]);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            inicializarDadosDemo();
+            const user = getCurrentUser();
+            if (user) {
+                document.getElementById('authScreen').style.display = 'none';
+                document.getElementById('mainApp').classList.remove('hidden');
+                inicializarInterfaceUsuario();
+                if (window.innerWidth >= 1024) document.getElementById('sidebar').classList.remove('sidebar-hidden');
+                showSection('dashboard');
+            }
+            updateNotifBadge();
+        });
+
+        setInterval(updateNotifBadge, 30000);
     </script>
 </body>
 </html>
