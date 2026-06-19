@@ -32,7 +32,6 @@
             --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
             --sidebar-width: 17rem; --header-height: 4rem;
             --z-sidebar: 40; --z-overlay: 30; --z-header: 20; --z-modal: 50; --z-toast: 60;
-            /* ⭐ Novas variáveis de design */
             --shadow-stat: 0 4px 6px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.02);
             --shadow-stat-hover: 0 10px 25px rgba(0,0,0,0.08);
             --radius-stat: 1rem;
@@ -48,7 +47,7 @@
         html { font-size: 16px; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
         body { font-family: var(--font-sans); background: var(--gray-50); color: var(--text-primary); line-height: 1.5; min-height: 100vh; overflow-x: hidden; transition: background 0.3s, color 0.3s; }
 
-        /* ⭐ AUTH SCREEN */
+        /* AUTH SCREEN */
         #authScreen {
             position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center;
             padding: 0.75rem; overflow-y: auto;
@@ -89,7 +88,7 @@
         .country-option:hover { background: var(--gray-50); }
         .country-option.selected { background: var(--primary-light); color: var(--primary); font-weight: 600; }
 
-        /* ⭐ SIDEBAR */
+        /* SIDEBAR */
         #sidebar { position: fixed; top: 0; left: 0; height: 100vh; width: min(85vw,18rem); background: var(--surface-sidebar); z-index: var(--z-sidebar); transform: translateX(-100%); transition: transform 0.3s; display: flex; flex-direction: column; }
         #sidebar:not(.sidebar-hidden) { transform: translateX(0); }
         @media (min-width: 1024px) { #sidebar { position: sticky; transform: translateX(0); width: var(--sidebar-width); } }
@@ -120,7 +119,7 @@
         #sidebarOverlay:not(.hidden) { opacity: 1; pointer-events: auto; }
         @media (min-width: 1024px) { #sidebarOverlay { display: none; } }
 
-        /* ⭐ HEADER */
+        /* HEADER */
         .main-header { position: sticky; top: 0; z-index: var(--z-header); background: var(--surface-glass); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-light); padding: 0 0.75rem; height: var(--header-height); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
         .header-left { display: flex; align-items: center; gap: 0.5rem; min-width: 0; flex: 1; }
         .btn-menu { width: 2.5rem; height: 2.5rem; border-radius: 0.75rem; border: 1px solid var(--border-light); background: var(--surface-primary); color: var(--icon-header); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; transition: all 0.15s; }
@@ -147,7 +146,7 @@
         @media (min-width: 640px) { .main-content { padding: 1.25rem; } }
         @media (min-width: 1024px) { .main-content { padding: 1.5rem; } }
 
-        /* ⭐ STATS CARDS - MELHORADOS */
+        /* STATS CARDS */
         .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.625rem; margin-bottom: 1rem; }
         @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.25rem; } }
         .stat-card {
@@ -175,12 +174,12 @@
         .stat-value { font-size: 1.75rem; font-weight: 800; line-height: 1; color: var(--text-primary); letter-spacing: -0.02em; }
         .stat-label { font-size: 0.6875rem; color: var(--text-secondary); font-weight: 500; }
 
-        /* ⭐ DASHBOARD GRID */
+        /* DASHBOARD GRID */
         .dashboard-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
         @media (min-width: 768px) { .dashboard-grid { grid-template-columns: 1fr 1fr; gap: 1rem; } }
         @media (min-width: 1024px) { .dashboard-grid { grid-template-columns: 2fr 1fr; } }
 
-        /* ⭐ BOOKS GRID - CAPAS MAIORES */
+        /* BOOKS GRID */
         .books-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.625rem; }
         @media (min-width: 640px) { .books-grid { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; } }
         @media (min-width: 1024px) { .books-grid { grid-template-columns: repeat(4, 1fr); gap: 1rem; } }
@@ -208,7 +207,7 @@
         .book-category { display: inline-block; font-size: 0.6rem; font-weight: 500; padding: 0.2rem 0.6rem; border-radius: 9999px; background: var(--gray-100); color: var(--text-secondary); }
         .book-actions { display: flex; gap: 0.375rem; margin-top: 0.625rem; flex-wrap: wrap; }
 
-        /* ⭐ BADGES MELHORADOS */
+        /* BADGES */
         .badge { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.25rem 0.7rem; font-size: 0.6rem; font-weight: 600; border-radius: 9999px; letter-spacing: 0.01em; }
         .badge i { font-size: 0.55rem; }
         .badge-success { background: var(--success-light); color: var(--success); }
@@ -222,7 +221,7 @@
         .status-dot.danger { background: var(--danger); }
         .status-dot.warning { background: var(--warning); }
 
-        /* ⭐ BOTÕES */
+        /* BOTÕES */
         .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.4rem 0.9rem; border-radius: 0.625rem; font-family: var(--font-sans); font-size: 0.7rem; font-weight: 500; border: 1.5px solid transparent; cursor: pointer; transition: all 0.2s cubic-bezier(0.16,1,0.3,1); white-space: nowrap; min-height: 2.25rem; }
         .btn:active { transform: scale(0.96); }
         .btn-primary { background: var(--primary-gradient); color: white; } .btn-primary i { color: white; }
@@ -238,14 +237,14 @@
         .w-full { width: 100%; } .flex-1 { flex: 1; } .text-center { text-align: center; } .hidden { display: none !important; }
         .flex-wrap { flex-wrap: wrap; } .gap-2 { gap: 0.5rem; }
 
-        /* ⭐ CONTENT CARDS */
+        /* CONTENT CARDS */
         .content-card { background: var(--surface-primary); border-radius: 1rem; box-shadow: var(--shadow-stat); border: 1px solid var(--border-light); overflow: hidden; }
         .content-card-header { padding: 0.875rem 1rem; border-bottom: 1px solid var(--border-light); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
         .content-card-header h3 { font-size: 0.9375rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem; color: var(--text-primary); }
         .content-card-header h3 i { color: var(--primary); }
         .content-card-body { padding: 0.875rem 1rem; color: var(--text-primary); }
 
-        /* ⭐ TABELAS MELHORADAS */
+        /* TABELAS */
         .table-container { overflow-x: auto; border-radius: 0.5rem; }
         table { width: 100%; border-collapse: collapse; font-size: 0.7rem; min-width: 550px; }
         table thead { background: var(--gray-50); border-bottom: 2px solid var(--border-light); }
@@ -258,7 +257,39 @@
         .loan-status-returned { color: var(--success); font-weight: 600; }
         .loan-status-late { color: var(--danger); font-weight: 600; }
 
-        /* ⭐ MODAL */
+        /* REPORT STYLES */
+        .report-tabs { display: flex; gap: 0.375rem; overflow-x: auto; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+        .report-tab { padding: 0.5rem 0.875rem; border: 1.5px solid var(--border-light); border-radius: 0.625rem; background: var(--surface-primary); color: var(--text-secondary); font-family: var(--font-sans); font-size: 0.75rem; font-weight: 500; cursor: pointer; white-space: nowrap; transition: all 0.15s; display: flex; align-items: center; gap: 0.375rem; }
+        .report-tab i { color: var(--icon-muted); }
+        .report-tab:hover { border-color: var(--primary); color: var(--primary); }
+        .report-tab:hover i { color: var(--primary); }
+        .report-tab.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .report-tab.active i { color: white; }
+        .report-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; align-items: center; }
+        .report-chart-container { background: var(--surface-primary); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light); margin-bottom: 1rem; }
+        .report-chart-title { font-size: 0.875rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: var(--text-primary); }
+        .bar-chart { display: flex; align-items: flex-end; gap: 0.75rem; height: 180px; padding: 0 0.5rem; overflow-x: auto; }
+        .bar-item { flex: 1; min-width: 50px; display: flex; flex-direction: column; align-items: center; gap: 0.375rem; height: 100%; }
+        .bar { width: 100%; max-width: 70px; border-radius: 8px 8px 0 0; transition: height 0.5s cubic-bezier(0.16,1,0.3,1); position: relative; min-height: 4px; }
+        .bar-value { font-size: 0.6rem; font-weight: 700; color: var(--text-primary); margin-top: 0.25rem; }
+        .bar-label { font-size: 0.55rem; color: var(--text-secondary); text-align: center; word-break: break-word; }
+        .report-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 0.625rem; margin-bottom: 1rem; }
+        @media (min-width: 640px) { .report-summary { grid-template-columns: repeat(4, 1fr); } }
+        .summary-item { background: var(--surface-primary); padding: 0.875rem; border-radius: 0.75rem; border: 1px solid var(--border-light); text-align: center; }
+        .summary-item .val { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); }
+        .summary-item .lbl { font-size: 0.625rem; color: var(--text-secondary); margin-top: 0.25rem; }
+        .print-only { display: none; }
+        @media print {
+            body { background: white; }
+            .main-header, #sidebar, #sidebarOverlay, .btn, .report-tabs, .report-actions, #toastContainer, .btn-menu, .btn-notification, .btn-dark-mode { display: none !important; }
+            .main-content { padding: 0; }
+            .print-only { display: block; }
+            .content-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+            .table-container { overflow-x: visible; }
+            table { font-size: 10px; min-width: auto; }
+        }
+
+        /* MODAL */
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(2px); z-index: var(--z-modal); display: flex; align-items: flex-end; justify-content: center; }
         @media (min-width: 480px) { .modal-overlay { align-items: center; padding: 1rem; } }
         .modal-container { background: var(--surface-primary); border-radius: 1.25rem 1.25rem 0 0; box-shadow: 0 -4px 24px rgba(0,0,0,0.2); width: 100%; max-height: 90vh; overflow-y: auto; animation: modalSlideUp 0.35s cubic-bezier(0.16,1,0.3,1); }
@@ -278,10 +309,10 @@
         .cover-preview { width: 100%; height: 150px; border-radius: 0.5rem; background: var(--gray-100); display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 0.75rem; }
         .cover-preview img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* ⭐ PERFIL */
+        /* PERFIL */
         .profile-avatar-lg { width: 6rem; height: 6rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 2rem; color: white; border: 3px solid var(--gold-angola); margin: 0 auto 1rem; box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
 
-        /* ⭐ TOAST */
+        /* TOAST */
         #toastContainer { position: fixed; bottom: 0.75rem; left: 0.75rem; right: 0.75rem; z-index: 60; display: flex; flex-direction: column; gap: 0.375rem; }
         @media (min-width: 480px) { #toastContainer { bottom: auto; top: 1rem; left: auto; right: 1rem; max-width: 360px; } }
         .toast { padding: 0.75rem 1rem; border-radius: 0.75rem; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; color: white; animation: toastIn 0.4s cubic-bezier(0.16,1,0.3,1); }
@@ -429,7 +460,7 @@
         function mostrarErro(el, msg) { el.style.border = '1.5px solid var(--danger)'; el.style.background = 'var(--danger-light)'; const p = el.closest('.input-group'); if (!p) return; const old = p.querySelector('.form-error'); if (old) old.remove(); const s = document.createElement('span'); s.style.cssText = 'font-size:0.625rem;color:var(--danger);margin-top:0.25rem;display:block;'; s.textContent = '⚠️ ' + msg; p.appendChild(s); }
         function limparErros(f) { f.querySelectorAll('input,select').forEach(e => { e.style.border = ''; e.style.background = ''; }); f.querySelectorAll('.form-error').forEach(e => e.remove()); }
 
-        // ⭐ LOGIN
+        // LOGIN
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = document.getElementById('loginEmail').value.trim().toLowerCase(), pw = document.getElementById('loginPassword').value;
@@ -442,7 +473,7 @@
             showToast(`Bem-vindo(a), ${user.nome}!`, 'success');
         });
 
-        // ⭐ CADASTRO
+        // CADASTRO
         document.getElementById('registerForm').addEventListener('submit', function(e) {
             e.preventDefault(); limparErros(this);
             const nome = document.getElementById('regNome').value.trim(), email = document.getElementById('regEmail').value.trim().toLowerCase();
@@ -495,9 +526,9 @@
             const totalBooks = getBooks().length;
             let menuHTML = '';
             if (user.tipo === 'gestor') {
-                menuHTML = `<a onclick="showSection('dashboard')" data-nav="dashboard" class="sidebar-link active"><i class="fas fa-chart-pie"></i><span>Painel Principal</span></a><a onclick="showSection('books')" data-nav="books" class="sidebar-link"><i class="fas fa-book"></i><span>Acervo (${totalBooks})</span></a><a onclick="showSection('loans')" data-nav="loans" class="sidebar-link"><i class="fas fa-hand-holding-heart"></i><span>Empréstimos</span></a><a onclick="showSection('students')" data-nav="students" class="sidebar-link"><i class="fas fa-users"></i><span>Estudantes</span></a><a onclick="showSection('users')" data-nav="users" class="sidebar-link"><i class="fas fa-user-cog"></i><span>Utilizadores</span></a><hr class="sidebar-divider"><a onclick="showSection('profile')" data-nav="profile" class="sidebar-link"><i class="fas fa-id-card"></i><span>Meu Perfil</span></a>`;
+                menuHTML = `<a onclick="showSection('dashboard')" data-nav="dashboard" class="sidebar-link active"><i class="fas fa-chart-pie"></i><span>Painel Principal</span></a><a onclick="showSection('books')" data-nav="books" class="sidebar-link"><i class="fas fa-book"></i><span>Acervo (${totalBooks})</span></a><a onclick="showSection('loans')" data-nav="loans" class="sidebar-link"><i class="fas fa-hand-holding-heart"></i><span>Empréstimos</span></a><a onclick="showSection('students')" data-nav="students" class="sidebar-link"><i class="fas fa-users"></i><span>Estudantes</span></a><a onclick="showSection('users')" data-nav="users" class="sidebar-link"><i class="fas fa-user-cog"></i><span>Utilizadores</span></a><a onclick="showSection('reports')" data-nav="reports" class="sidebar-link"><i class="fas fa-chart-bar"></i><span>Relatórios</span></a><hr class="sidebar-divider"><a onclick="showSection('profile')" data-nav="profile" class="sidebar-link"><i class="fas fa-id-card"></i><span>Meu Perfil</span></a>`;
             } else if (user.tipo === 'funcionario') {
-                menuHTML = `<a onclick="showSection('dashboard')" data-nav="dashboard" class="sidebar-link active"><i class="fas fa-building"></i><span>Painel</span></a><a onclick="showSection('books')" data-nav="books" class="sidebar-link"><i class="fas fa-search"></i><span>Acervo (${totalBooks})</span></a><a onclick="showSection('loans')" data-nav="loans" class="sidebar-link"><i class="fas fa-bookmark"></i><span>Meus Empréstimos</span></a><hr class="sidebar-divider"><a onclick="showSection('profile')" data-nav="profile" class="sidebar-link"><i class="fas fa-id-card"></i><span>Meu Perfil</span></a>`;
+                menuHTML = `<a onclick="showSection('dashboard')" data-nav="dashboard" class="sidebar-link active"><i class="fas fa-building"></i><span>Painel</span></a><a onclick="showSection('books')" data-nav="books" class="sidebar-link"><i class="fas fa-search"></i><span>Acervo (${totalBooks})</span></a><a onclick="showSection('loans')" data-nav="loans" class="sidebar-link"><i class="fas fa-bookmark"></i><span>Meus Empréstimos</span></a><a onclick="showSection('reports')" data-nav="reports" class="sidebar-link"><i class="fas fa-chart-bar"></i><span>Relatórios</span></a><hr class="sidebar-divider"><a onclick="showSection('profile')" data-nav="profile" class="sidebar-link"><i class="fas fa-id-card"></i><span>Meu Perfil</span></a>`;
             } else {
                 menuHTML = `<a onclick="showSection('dashboard')" data-nav="dashboard" class="sidebar-link active"><i class="fas fa-home"></i><span>Meu Painel</span></a><a onclick="showSection('books')" data-nav="books" class="sidebar-link"><i class="fas fa-search"></i><span>Acervo (${totalBooks})</span></a><a onclick="showSection('loans')" data-nav="loans" class="sidebar-link"><i class="fas fa-bookmark"></i><span>Meus Empréstimos</span></a><hr class="sidebar-divider"><a onclick="showSection('profile')" data-nav="profile" class="sidebar-link"><i class="fas fa-id-card"></i><span>Meu Perfil</span></a>`;
             }
@@ -510,7 +541,7 @@
 
         function showSection(section) {
             const user = getCurrentUser();
-            const titles = { dashboard: 'Painel Principal', books: 'Acervo Bibliográfico', loans: user?.tipo === 'estudante' || user?.tipo === 'funcionario' ? 'Meus Empréstimos' : 'Gestão de Empréstimos', students: 'Estudantes', users: 'Gestão de Utilizadores', profile: 'Meu Perfil' };
+            const titles = { dashboard: 'Painel Principal', books: 'Acervo Bibliográfico', loans: user?.tipo === 'estudante' || user?.tipo === 'funcionario' ? 'Meus Empréstimos' : 'Gestão de Empréstimos', students: 'Estudantes', users: 'Gestão de Utilizadores', profile: 'Meu Perfil', reports: 'Relatórios e Estatísticas' };
             document.getElementById('pageTitle').textContent = titles[section] || 'Biblioteca';
             document.getElementById('breadcrumbCurrent').textContent = titles[section] || 'Biblioteca';
             document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
@@ -521,6 +552,7 @@
             if (section === 'students') renderStudentsSection();
             if (section === 'users') renderUsersSection();
             if (section === 'profile') renderProfileSection();
+            if (section === 'reports') renderReportsSection();
             if (window.innerWidth < 1024) toggleSidebar(true);
             updateNotifBadge();
         }
@@ -528,7 +560,7 @@
         function toggleSidebar(forceClose = false) { if (window.innerWidth >= 1024) return; const sb = document.getElementById('sidebar'), ov = document.getElementById('sidebarOverlay'); if (forceClose || !sb.classList.contains('sidebar-hidden')) { sb.classList.add('sidebar-hidden'); ov.classList.add('hidden'); } else { sb.classList.remove('sidebar-hidden'); ov.classList.remove('hidden'); } }
         document.addEventListener('click', function(e) { if (window.innerWidth >= 1024) return; const sb = document.getElementById('sidebar'), ov = document.getElementById('sidebarOverlay'), mb = document.querySelector('.btn-menu'); if (ov && !ov.classList.contains('hidden') && !sb.contains(e.target) && e.target !== mb && !mb?.contains(e.target)) toggleSidebar(true); });
 
-        // ⭐ DASHBOARD MELHORADO
+        // DASHBOARD
         function renderDashboard() {
             const books = getBooks(), loans = getLoans(), users = getUsers(), estudantes = getEstudantes(), mc = document.getElementById('mainContent');
             const user = getCurrentUser();
@@ -593,7 +625,6 @@
             document.getElementById('statusFilter')?.addEventListener('change', function() { renderBooksSection(this.value ? getBooks().filter(b => b.status === this.value) : null); });
         }
 
-        // ⭐ EMPRÉSTIMOS MELHORADOS
         function renderLoansSection() {
             const user = getCurrentUser(); let loans = getLoans();
             if (user.tipo !== 'gestor') loans = loans.filter(l => l.userId === user.id);
@@ -622,7 +653,6 @@
             document.getElementById('studentSearchInput')?.addEventListener('input', function() { const q = this.value.toLowerCase(); document.getElementById('studentsGrid').innerHTML = estudantes.filter(s => s.nome.toLowerCase().includes(q) || (s.matricula||'').toLowerCase().includes(q)).map(s=>`<div class="book-card"><div style="padding:0.875rem;"><div style="display:flex;align-items:center;gap:0.625rem;margin-bottom:0.5rem;"><div class="user-avatar" style="width:2.75rem;height:2.75rem;font-size:0.8rem;background:${getAvatarColor(s.nome)};">${s.nome.split(' ').map(n=>n[0]).join('').substring(0,2)}</div><div><h3 style="font-weight:700;font-size:0.875rem;color:var(--text-primary);">${s.nome}</h3><p style="font-size:0.6875rem;color:var(--text-secondary);">📋 ${s.matricula||''}</p></div></div><p style="font-size:0.6875rem;color:var(--text-secondary);">🏫 ${s.turma||''}</p></div></div>`).join(''); });
         }
 
-        // ⭐ UTILIZADORES MELHORADOS
         function renderUsersSection() {
             const users = getUsers(), cu = getCurrentUser();
             const tipoBadge = { gestor: 'badge-secondary', funcionario: 'badge-info', estudante: 'badge-primary' };
@@ -630,11 +660,508 @@
             document.getElementById('mainContent').innerHTML = `<div class="content-card"><div style="padding:0.875rem 1rem;border-bottom:1px solid var(--border-light);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;"><h3 style="font-size:1rem;font-weight:700;color:var(--text-primary);"><i class="fas fa-users-cog" style="color:var(--primary);"></i> Gestão de Utilizadores</h3><div style="display:flex;gap:0.375rem;"><button class="btn btn-primary btn-sm" onclick="openUserModal('estudante')"><i class="fas fa-user-graduate"></i> Estudante</button><button class="btn btn-info btn-sm" onclick="openUserModal('funcionario')"><i class="fas fa-user-tie"></i> Funcionário</button><button class="btn btn-success btn-sm" onclick="openUserModal('gestor')"><i class="fas fa-user-shield"></i> Gestor</button></div></div><div class="table-container"><table><thead><tr><th>Nome</th><th>E-mail</th><th>Tipo</th><th>Turma/Dep.</th><th>Status</th><th>Ações</th></tr></thead><tbody>${users.map(u=>`<tr><td><span class="row-avatar" style="background:${getAvatarColor(u.nome)};">${(u.avatar||'U').substring(0,2)}</span>${u.nome}</td><td style="font-size:0.7rem;">${u.email}</td><td><span class="badge ${tipoBadge[u.tipo]||'badge-primary'}">${tipoLabel[u.tipo]||u.tipo}</span></td><td>${u.turma||u.departamento||'—'}</td><td><span class="badge ${u.status==='activo'?'badge-success':'badge-danger'}"><span class="status-dot ${u.status==='activo'?'success':'danger'}"></span> ${u.status==='activo'?'Activo':'Inact.'}</span></td><td>${u.id!==cu?.id?`<div style="display:flex;gap:0.25rem;"><button class="btn btn-ghost btn-sm" onclick="editarUtilizador(${u.id})"><i class="fas fa-edit"></i></button><button class="btn btn-danger btn-sm" onclick="removerUtilizador(${u.id})"><i class="fas fa-trash"></i></button></div>`:'<span style="color:var(--text-tertiary);font-size:0.6875rem;">Você</span>'}</td></tr>`).join('')}</tbody></table></div></div>`;
         }
 
-        // ⭐ PERFIL MELHORADO
         function renderProfileSection() {
             const user = getCurrentUser(); if (!user) return;
             const tipoLabel = { gestor: 'Gestor/Bibliotecário', funcionario: 'Funcionário', estudante: `Estudante - ${user.turma||'N/A'}` };
             document.getElementById('mainContent').innerHTML = `<div style="max-width:44rem;margin:0 auto;"><div class="content-card"><div class="content-card-body"><div class="text-center" style="margin-bottom:1.5rem;"><div class="profile-avatar-lg" style="background:linear-gradient(135deg,${getAvatarColor(user.nome)},${getAvatarColor(user.nome+'1')});">${user.avatar||'U'}</div><h2 style="font-size:1.5rem;font-weight:700;color:var(--text-primary);">${user.nome}</h2><p style="color:var(--text-secondary);">${tipoLabel[user.tipo]||'Utilizador'}</p></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">${[{l:'📧 E-mail',v:user.email,icon:'envelope'},{l:'👤 Tipo',v:tipoLabel[user.tipo]||user.tipo,icon:'tag'},...user.tipo==='estudante'?[{l:'📋 Matrícula',v:user.matricula||'N/A',icon:'id-card'},{l:'🏫 Turma',v:user.turma||'N/A',icon:'graduation-cap'}]:[],...user.tipo==='funcionario'?[{l:'🏢 Departamento',v:user.departamento||'N/A',icon:'building'}]:[],{l:'📞 Telefone',v:user.telefone||'Não informado',icon:'phone'},{l:'📅 Membro desde',v:user.dataCriacao||'N/A',icon:'calendar'},{l:'🟢 Status',v:user.status==='activo'?'✅ Activo':'❌ Inactivo',icon:'circle'}].map(i=>`<div style="padding:1rem;background:var(--gray-50);border-radius:0.75rem;display:flex;align-items:center;gap:0.75rem;"><div style="width:2.5rem;height:2.5rem;background:var(--primary-light);border-radius:0.625rem;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--primary);"><i class="fas fa-${i.icon}"></i></div><div><p style="font-size:0.6875rem;color:var(--text-tertiary);margin-bottom:0.125rem;">${i.l}</p><p style="font-weight:500;font-size:0.875rem;color:var(--text-primary);">${i.v}</p></div></div>`).join('')}</div><div style="display:flex;gap:0.75rem;margin-top:1.5rem;flex-wrap:wrap;"><button class="btn btn-primary flex-1 btn-sm" onclick="openEditProfileModal()"><i class="fas fa-edit"></i> Editar Perfil</button><button class="btn btn-ghost flex-1 btn-sm" onclick="openChangePasswordModal()"><i class="fas fa-lock"></i> Alterar Senha</button></div></div></div></div>`;
+        }
+
+        // ⭐ RELATÓRIOS
+        function renderReportsSection(reportType = 'geral') {
+            const books = getBooks(), loans = getLoans(), users = getUsers(), estudantes = getEstudantes();
+            const mc = document.getElementById('mainContent');
+            
+            // Categorias e dados
+            const cats = {}; books.forEach(b => { cats[b.categoria] = (cats[b.categoria] || 0) + 1; });
+            const maxCat = Math.max(...Object.values(cats), 1);
+            
+            const booksByStatus = {
+                disponivel: books.filter(b => b.status === 'disponivel').length,
+                emprestado: books.filter(b => b.status === 'emprestado').length,
+                reservado: books.filter(b => b.status === 'reservado').length
+            };
+            const maxStatus = Math.max(...Object.values(booksByStatus), 1);
+            
+            const activeLoans = loans.filter(l => !l.dataDevolucao);
+            const lateLoans = activeLoans.filter(l => new Date(l.dataPrevista) < new Date());
+            const returnedLoans = loans.filter(l => l.dataDevolucao);
+            const totalMultas = loans.reduce((s, l) => s + (l.multa || 0), 0);
+            const pendingMultas = loans.filter(l => !l.dataDevolucao).reduce((s, l) => s + (l.multa || 0), 0);
+            
+            // Top readers
+            const readerCounts = {};
+            loans.forEach(l => { if (!readerCounts[l.userName]) readerCounts[l.userName] = 0; readerCounts[l.userName]++; });
+            const topReaders = Object.entries(readerCounts).sort((a,b) => b[1] - a[1]).slice(0, 5);
+            const maxReader = topReaders.length > 0 ? topReaders[0][1] : 1;
+            
+            // Most borrowed books
+            const bookCounts = {};
+            loans.forEach(l => { if (!bookCounts[l.bookTitulo]) bookCounts[l.bookTitulo] = 0; bookCounts[l.bookTitulo]++; });
+            const topBooks = Object.entries(bookCounts).sort((a,b) => b[1] - a[1]).slice(0, 5);
+            const maxBook = topBooks.length > 0 ? topBooks[0][1] : 1;
+            
+            const tabs = [
+                { id: 'geral', label: 'Geral', icon: 'fa-chart-pie' },
+                { id: 'acervo', label: 'Acervo', icon: 'fa-book' },
+                { id: 'emprestimos', label: 'Empréstimos', icon: 'fa-hand-holding-heart' },
+                { id: 'multas', label: 'Multas', icon: 'fa-coins' },
+                { id: 'utilizadores', label: 'Utilizadores', icon: 'fa-users' }
+            ];
+            
+            let html = `
+            <div class="print-only" style="text-align:center;margin-bottom:1rem;">
+                <h2 style="font-family:var(--font-display);">📊 Relatório - Biblioteca CIV</h2>
+                <p style="font-size:0.75rem;color:var(--text-secondary);">Gerado em ${new Date().toLocaleDateString('pt-AO')}</p>
+            </div>
+            <div class="report-tabs" id="reportTabs">
+                ${tabs.map(t => `<button class="report-tab ${t.id===reportType?'active':''}" onclick="renderReportsSection('${t.id}')"><i class="fas ${t.icon}"></i> ${t.label}</button>`).join('')}
+            </div>
+            <div class="report-actions">
+                <button class="btn btn-primary btn-sm" onclick="window.print()"><i class="fas fa-print"></i> Imprimir</button>
+                <button class="btn btn-success btn-sm" onclick="exportReportCSV('${reportType}')"><i class="fas fa-file-csv"></i> Exportar CSV</button>
+                <button class="btn btn-info btn-sm" onclick="exportReportPDF()"><i class="fas fa-file-pdf"></i> PDF</button>
+            </div>`;
+            
+            if (reportType === 'geral') {
+                html += `
+                <div class="report-summary">
+                    <div class="summary-item"><div class="val">${books.length}</div><div class="lbl">📚 Total de Livros</div></div>
+                    <div class="summary-item"><div class="val">${activeLoans.length}</div><div class="lbl">📖 Emp. Activos</div></div>
+                    <div class="summary-item"><div class="val">${totalMultas} Kz</div><div class="lbl">💰 Multas Totais</div></div>
+                    <div class="summary-item"><div class="val">${users.length}</div><div class="lbl">👥 Utilizadores</div></div>
+                </div>
+                
+                <div class="report-chart-container">
+                    <div class="report-chart-title"><i class="fas fa-chart-bar" style="color:var(--primary);"></i> Distribuição por Status</div>
+                    <div class="bar-chart">
+                        ${[{l:'Disponível',v:booksByStatus.disponivel,c:'var(--success)'},{l:'Emprestado',v:booksByStatus.emprestado,c:'var(--warning)'},{l:'Reservado',v:booksByStatus.reservado,c:'var(--info)'}].map(i=>`
+                        <div class="bar-item">
+                            <div class="bar-value">${i.v}</div>
+                            <div class="bar" style="height:${(i.v/maxStatus*140)}px;background:${i.c};"></div>
+                            <div class="bar-label">${i.l}</div>
+                        </div>`).join('')}
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <div class="content-card-header"><h3><i class="fas fa-fire"></i> Livros Mais Emprestados</h3></div>
+                    <div class="content-card-body">
+                        ${topBooks.length === 0 ? '<p style="color:var(--text-tertiary);text-align:center;">Sem dados</p>' :
+                        topBooks.map(([name, count], i) => `
+                        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">
+                            <span style="font-weight:700;font-size:0.75rem;min-width:1.5rem;">#${i+1}</span>
+                            <span style="flex:1;font-size:0.75rem;">${name}</span>
+                            <span style="font-weight:600;font-size:0.75rem;color:var(--primary);">${count}x</span>
+                            <div style="width:80px;height:6px;background:var(--gray-200);border-radius:3px;"><div style="width:${(count/maxBook*100)}%;height:100%;background:var(--primary);border-radius:3px;"></div></div>
+                        </div>`).join('')}
+                    </div>
+                </div>`;
+            }
+            
+            else if (reportType === 'acervo') {
+                html += `
+                <div class="report-summary">
+                    <div class="summary-item"><div class="val">${books.length}</div><div class="lbl">📚 Total</div></div>
+                    <div class="summary-item"><div class="val">${booksByStatus.disponivel}</div><div class="lbl">✅ Disponível</div></div>
+                    <div class="summary-item"><div class="val">${booksByStatus.emprestado}</div><div class="lbl">📕 Emprestado</div></div>
+                    <div class="summary-item"><div class="val">${Object.keys(cats).length}</div><div class="lbl">📂 Categorias</div></div>
+                </div>
+                
+                <div class="report-chart-container">
+                    <div class="report-chart-title"><i class="fas fa-layer-group" style="color:var(--primary);"></i> Livros por Categoria</div>
+                    <div class="bar-chart">
+                        ${Object.entries(cats).map(([cat, count]) => `
+                        <div class="bar-item">
+                            <div class="bar-value">${count}</div>
+                            <div class="bar" style="height:${(count/maxCat*140)}px;background:linear-gradient(to top, var(--primary), var(--secondary));"></div>
+                            <div class="bar-label">${cat.substring(0,10)}</div>
+                        </div>`).join('')}
+                    </div>
+                </div>
+                
+                <div class="content-card"><div class="table-container"><table>
+                    <thead><tr><th>Título</th><th>Autor</th><th>Categoria</th><th>Status</th></tr></thead>
+                    <tbody>${books.map(b => `<tr><td style="font-weight:500;">${b.titulo}</td><td>${b.autor}</td><td>${b.categoria}</td><td><span class="badge ${b.status==='disponivel'?'badge-success':b.status==='emprestado'?'badge-danger':'badge-warning'}">${b.status}</span></td></tr>`).join('')}</tbody>
+                </table></div></div>`;
+            }
+            
+            else if (reportType === 'emprestimos') {
+                html += `
+                <div class="report-summary">
+                    <div class="summary-item"><div class="val">${loans.length}</div><div class="lbl">📊 Total</div></div>
+                    <div class="summary-item"><div class="val">${activeLoans.length}</div><div class="lbl">📖 Activos</div></div>
+                    <div class="summary-item"><div class="val">${lateLoans.length}</div><div class="lbl">⚠️ Atrasados</div></div>
+                    <div class="summary-item"><div class="val">${returnedLoans.length}</div><div class="lbl">✅ Devolvidos</div></div>
+                </div>
+                
+                <div class="report-chart-container">
+                    <div class="report-chart-title"><i class="fas fa-users" style="color:var(--primary);"></i> Leitores Mais Activos</div>
+                    <div class="bar-chart">
+                        ${topReaders.length === 0 ? '<p style="color:var(--text-tertiary);">Sem dados</p>' :
+                        topReaders.map(([name, count]) => `
+                        <div class="bar-item">
+                            <div class="bar-value">${count}</div>
+                            <div class="bar" style="height:${(count/maxReader*140)}px;background:linear-gradient(to top, var(--warning), var(--danger));"></div>
+                            <div class="bar-label">${name.substring(0,10)}</div>
+                        </div>`).join('')}
+                    </div>
+                </div>
+                
+                <div class="content-card"><div class="table-container"><table>
+                    <thead><tr><th>Utilizador</th><th>Livro</th><th>Empréstimo</th><th>Prevista</th><th>Status</th></tr></thead>
+                    <tbody>${loans.map(l => {
+                        const isLate = !l.dataDevolucao && new Date(l.dataPrevista) < new Date();
+                        return `<tr><td>${l.userName||''}</td><td>${l.bookTitulo||''}</td><td>${l.dataEmprestimo}</td><td>${l.dataPrevista}</td><td><span class="badge ${l.dataDevolucao?'badge-success':isLate?'badge-danger':'badge-primary'}">${l.dataDevolucao?'Devolvido':isLate?'Atrasado':'Activo'}</span></td></tr>`;
+                    }).join('')}</tbody>
+                </table></div></div>`;
+            }
+            
+            else if (reportType === 'multas') {
+                const loansWithMultas = loans.filter(l => l.multa > 0);
+                const totalMultasCobradas = loans.filter(l => l.dataDevolucao).reduce((s, l) => s + (l.multa || 0), 0);
+                html += `
+                <div class="report-summary">
+                    <div class="summary-item"><div class="val">${totalMultas} Kz</div><div class="lbl">💰 Total Multas</div></div>
+                    <div class="summary-item"><div class="val">${pendingMultas} Kz</div><div class="lbl">⏳ Pendentes</div></div>
+                    <div class="summary-item"><div class="val">${totalMultasCobradas} Kz</div><div class="lbl">✅ Cobradas</div></div>
+                    <div class="summary-item"><div class="val">${loansWithMultas.length}</div><div class="lbl">📋 Registos c/ Multa</div></div>
+                </div>
+                
+                <div class="content-card"><div class="table-container"><table>
+                    <thead><tr><th>Utilizador</th><th>Livro</th><th>Prevista</th><th>Devolução</th><th>Multa</th></tr></thead>
+                    <tbody>${loansWithMultas.length === 0 ? '<tr><td colspan="5" class="text-center">Sem multas registadas 🎉</td></tr>' :
+                    loansWithMultas.map(l => `<tr><td>${l.userName||''}</td><td>${l.bookTitulo||''}</td><td>${l.dataPrevista}</td><td>${l.dataDevolucao||'—'}</td><td style="color:var(--danger);font-weight:600;">${l.multa} Kz</td></tr>`).join('')}</tbody>
+                </table></div></div>`;
+            }
+            
+            else if (reportType === 'utilizadores') {
+                const byType = { gestor: users.filter(u=>u.tipo==='gestor').length, funcionario: users.filter(u=>u.tipo==='funcionario').length, estudante: users.filter(u=>u.tipo==='estudante').length };
+                const maxType = Math.max(...Object.values(byType), 1);
+                const byTurma = {}; estudantes.forEach(e => { byTurma[e.turma||'N/A'] = (byTurma[e.turma||'N/A'] || 0) + 1; });
+                const maxTurma = Math.max(...Object.values(byTurma), 1);
+                
+                html += `
+                <div class="report-summary">
+                    <div class="summary-item"><div class="val">${users.length}</div><div class="lbl">👥 Total</div></div>
+                    <div class="summary-item"><div class="val">${estudantes.length}</div><div class="lbl">🎓 Estudantes</div></div>
+                    <div class="summary-item"><div class="val">${users.filter(u=>u.tipo==='funcionario').length}</div><div class="lbl">👔 Funcionários</div></div>
+                    <div class="summary-item"><div class="val">${users.filter(u=>u.status==='activo').length}</div><div class="lbl">✅ Activos</div></div>
+                </div>
+                
+                <div class="report-chart-container">
+                    <div class="report-chart-title"><i class="fas fa-user-tag" style="color:var(--primary);"></i> Por Tipo</div>
+                    <div class="bar-chart">
+                        ${[{l:'Gestores',v:byType.gestor,c:'var(--secondary)'},{l:'Funcionários',v:byType.funcionario,c:'var(--info)'},{l:'Estudantes',v:byType.estudante,c:'var(--primary)'}].map(i=>`
+                        <div class="bar-item">
+                            <div class="bar-value">${i.v}</div>
+                            <div class="bar" style="height:${(i.v/maxType*140)}px;background:${i.c};"></div>
+                            <div class="bar-label">${i.l}</div>
+                        </div>`).join('')}
+                    </div>
+                </div>
+                
+                <div class="report-chart-container">
+                    <div class="report-chart-title"><i class="fas fa-school" style="color:var(--primary);"></i> Estudantes por Turma</div>
+                    <div class="bar-chart">
+                        ${Object.entries(byTurma).map(([turma, count]) => `
+                        <div class="bar-item">
+                            <div class="bar-value">${count}</div>
+                            <div class="bar" style="height:${(count/maxTurma*140)}px;background:linear-gradient(to top, var(--success), var(--primary));"></div>
+                            <div class="bar-label">${turma}</div>
+                        </div>`).join('')}
+                    </div>
+                </div>`;
+            }
+            
+            mc.innerHTML = html;
+        }
+        
+        // ⭐ EXPORT FUNCTIONS - OTIMIZADAS
+        function exportReportCSV(type) {
+            const books = getBooks(), loans = getLoans(), users = getUsers(), estudantes = getEstudantes();
+            let csv = '';
+            const filename = `relatorio_${type}_${new Date().toLocaleDateString('pt-AO').replace(/\//g, '-')}.csv`;
+            
+            // Função auxiliar para escapar campos CSV corretamente
+            function escapeCSV(field) {
+                if (field === null || field === undefined) return '';
+                const str = String(field).replace(/"/g, '""'); // Escapa aspas duplas
+                // Se contém vírgula, aspas, ponto e vírgula ou quebra de linha, envolve em aspas
+                if (str.includes(',') || str.includes('"') || str.includes(';') || str.includes('\n')) {
+                    return `"${str}"`;
+                }
+                return str;
+            }
+            
+            // Cabeçalho do relatório (metadados)
+            const metadata = [
+                `"RELATÓRIO: ${type.toUpperCase()}"`,
+                `"Gerado em: ${new Date().toLocaleString('pt-AO')}"`,
+                `"Utilizador: ${getCurrentUser()?.nome || 'N/A'}"`,
+                ''
+            ];
+            
+            if (type === 'acervo') {
+                csv = metadata.join('\n') + '\n';
+                csv += 'Título;Autor;Categoria;Status;ISBN;Ano;Editora;Descrição\n';
+                csv += books.map(b => {
+                    return [
+                        escapeCSV(b.titulo),
+                        escapeCSV(b.autor),
+                        escapeCSV(b.categoria),
+                        escapeCSV(b.status === 'disponivel' ? 'Disponível' : b.status === 'emprestado' ? 'Emprestado' : 'Reservado'),
+                        escapeCSV(b.isbn || 'N/A'),
+                        escapeCSV(b.ano || 'N/A'),
+                        escapeCSV(b.editora || 'N/A'),
+                        escapeCSV(b.descricao || '')
+                    ].join(';');
+                }).join('\n');
+                
+                // Resumo no final
+                csv += '\n\n"RESUMO DO ACERVO"\n';
+                csv += `"Total de Livros";"${books.length}"\n`;
+                csv += `"Disponíveis";"${books.filter(b=>b.status==='disponivel').length}"\n`;
+                csv += `"Emprestados";"${books.filter(b=>b.status==='emprestado').length}"\n`;
+                csv += `"Reservados";"${books.filter(b=>b.status==='reservado').length}"\n`;
+                
+            } else if (type === 'emprestimos') {
+                csv = metadata.join('\n') + '\n';
+                csv += 'Nº;Utilizador;Tipo Utilizador;Livro;Autor;Categoria;Data Empréstimo;Devolução Prevista;Data Devolução;Dias Atraso;Multa (Kz);Status\n';
+                
+                const loansSorted = [...loans].sort((a, b) => new Date(b.dataEmprestimo) - new Date(a.dataEmprestimo));
+                csv += loansSorted.map((l, index) => {
+                    const user = users.find(u => u.id === l.userId);
+                    const book = books.find(b => b.id === l.bookId);
+                    const hoje = new Date();
+                    const dataPrevista = new Date(l.dataPrevista);
+                    const diasAtraso = l.dataDevolucao ? 
+                        Math.max(0, Math.ceil((new Date(l.dataDevolucao) - dataPrevista) / (1000 * 60 * 60 * 24))) :
+                        Math.max(0, Math.ceil((hoje - dataPrevista) / (1000 * 60 * 60 * 24)));
+                    
+                    const status = l.dataDevolucao ? 'Devolvido' : 
+                                  new Date(l.dataPrevista) < hoje ? 'Atrasado' : 'Activo';
+                    
+                    return [
+                        index + 1,
+                        escapeCSV(l.userName || 'N/A'),
+                        escapeCSV(user?.tipo || 'N/A'),
+                        escapeCSV(l.bookTitulo || 'N/A'),
+                        escapeCSV(book?.autor || 'N/A'),
+                        escapeCSV(book?.categoria || 'N/A'),
+                        l.dataEmprestimo,
+                        l.dataPrevista,
+                        l.dataDevolucao || 'Pendente',
+                        diasAtraso,
+                        l.multa || 0,
+                        status
+                    ].join(';');
+                }).join('\n');
+                
+                // Resumo
+                const ativos = loans.filter(l => !l.dataDevolucao).length;
+                const devolvidos = loans.filter(l => l.dataDevolucao).length;
+                const atrasados = loans.filter(l => !l.dataDevolucao && new Date(l.dataPrevista) < new Date()).length;
+                const totalMultas = loans.reduce((s, l) => s + (l.multa || 0), 0);
+                
+                csv += '\n\n"RESUMO DE EMPRÉSTIMOS"\n';
+                csv += `"Total de Empréstimos";"${loans.length}"\n`;
+                csv += `"Empréstimos Activos";"${ativos}"\n`;
+                csv += `"Empréstimos Devolvidos";"${devolvidos}"\n`;
+                csv += `"Empréstimos Atrasados";"${atrasados}"\n`;
+                csv += `"Total de Multas (Kz)";"${totalMultas}"\n`;
+                csv += `"Taxa de Devolução";"${loans.length > 0 ? ((devolvidos/loans.length)*100).toFixed(1) : 0}%"`;
+                
+            } else if (type === 'multas') {
+                const loansWithMultas = loans.filter(l => (l.multa || 0) > 0);
+                const loansWithMultasSorted = [...loansWithMultas].sort((a, b) => (b.multa || 0) - (a.multa || 0));
+                
+                csv = metadata.join('\n') + '\n';
+                csv += 'Nº;Utilizador;Matrícula/ID;Turma;Livro;Data Empréstimo;Devolução Prevista;Data Devolução;Dias Atraso;Valor Multa (Kz);Status Pagamento\n';
+                
+                csv += loansWithMultasSorted.map((l, index) => {
+                    const user = users.find(u => u.id === l.userId);
+                    const hoje = new Date();
+                    const dataPrevista = new Date(l.dataPrevista);
+                    const diasAtraso = l.dataDevolucao ? 
+                        Math.max(0, Math.ceil((new Date(l.dataDevolucao) - dataPrevista) / (1000 * 60 * 60 * 24))) :
+                        Math.max(0, Math.ceil((hoje - dataPrevista) / (1000 * 60 * 60 * 24)));
+                    
+                    return [
+                        index + 1,
+                        escapeCSV(l.userName || 'N/A'),
+                        escapeCSV(user?.matricula || user?.id || 'N/A'),
+                        escapeCSV(user?.turma || user?.departamento || 'N/A'),
+                        escapeCSV(l.bookTitulo || 'N/A'),
+                        l.dataEmprestimo,
+                        l.dataPrevista,
+                        l.dataDevolucao || 'Pendente',
+                        diasAtraso,
+                        l.multa || 0,
+                        l.dataDevolucao ? 'Pago' : 'Pendente'
+                    ].join(';');
+                }).join('\n');
+                
+                // Resumo financeiro
+                const totalMultas = loansWithMultas.reduce((s, l) => s + (l.multa || 0), 0);
+                const multasPendentes = loansWithMultas.filter(l => !l.dataDevolucao).reduce((s, l) => s + (l.multa || 0), 0);
+                const multasPagas = loansWithMultas.filter(l => l.dataDevolucao).reduce((s, l) => s + (l.multa || 0), 0);
+                
+                csv += '\n\n"RESUMO FINANCEIRO"\n';
+                csv += `"Total de Registos com Multa";"${loansWithMultas.length}"\n`;
+                csv += `"Total de Multas (Kz)";"${totalMultas}"\n`;
+                csv += `"Multas Pendentes (Kz)";"${multasPendentes}"\n`;
+                csv += `"Multas Pagas (Kz)";"${multasPagas}"\n`;
+                csv += `"Percentagem Recebida";"${totalMultas > 0 ? ((multasPagas/totalMultas)*100).toFixed(1) : 0}%"`;
+                
+            } else if (type === 'utilizadores') {
+                csv = metadata.join('\n') + '\n';
+                csv += 'Nº;Nome Completo;E-mail;Tipo;Matrícula;Turma/Departamento;Telefone;Status;Data Criação;Total Empréstimos;Multas Pendentes (Kz)\n';
+                
+                const usersSorted = [...users].sort((a, b) => a.nome.localeCompare(b.nome));
+                csv += usersSorted.map((u, index) => {
+                    const userLoans = loans.filter(l => l.userId === u.id);
+                    const multasPendentes = userLoans.filter(l => !l.dataDevolucao).reduce((s, l) => s + (l.multa || 0), 0);
+                    
+                    return [
+                        index + 1,
+                        escapeCSV(u.nome),
+                        escapeCSV(u.email),
+                        escapeCSV(u.tipo === 'gestor' ? 'Gestor' : u.tipo === 'funcionario' ? 'Funcionário' : 'Estudante'),
+                        escapeCSV(u.matricula || 'N/A'),
+                        escapeCSV(u.turma || u.departamento || 'N/A'),
+                        escapeCSV(u.telefone || 'N/A'),
+                        u.status === 'activo' ? 'Activo' : 'Inactivo',
+                        u.dataCriacao || 'N/A',
+                        userLoans.length,
+                        multasPendentes
+                    ].join(';');
+                }).join('\n');
+                
+                // Resumo de utilizadores
+                const porTipo = {
+                    gestor: users.filter(u => u.tipo === 'gestor').length,
+                    funcionario: users.filter(u => u.tipo === 'funcionario').length,
+                    estudante: users.filter(u => u.tipo === 'estudante').length
+                };
+                const activos = users.filter(u => u.status === 'activo').length;
+                
+                csv += '\n\n"RESUMO DE UTILIZADORES"\n';
+                csv += `"Total de Utilizadores";"${users.length}"\n`;
+                csv += `"Gestores";"${porTipo.gestor}"\n`;
+                csv += `"Funcionários";"${porTipo.funcionario}"\n`;
+                csv += `"Estudantes";"${porTipo.estudante}"\n`;
+                csv += `"Utilizadores Activos";"${activos}"\n`;
+                csv += `"Utilizadores Inactivos";"${users.length - activos}"\n`;
+                
+                // Distribuição por turma
+                if (porTipo.estudante > 0) {
+                    const turmas = {};
+                    estudantes.forEach(e => {
+                        const turma = e.turma || 'Sem Turma';
+                        turmas[turma] = (turmas[turma] || 0) + 1;
+                    });
+                    
+                    csv += '\n"DISTRIBUIÇÃO POR TURMA"\n';
+                    Object.entries(turmas).sort((a, b) => b[1] - a[1]).forEach(([turma, qtd]) => {
+                        csv += `"${escapeCSV(turma)}";"${qtd}"\n`;
+                    });
+                }
+                
+            } else {
+                // Relatório geral
+                const disponiveis = books.filter(b => b.status === 'disponivel').length;
+                const emprestados = books.filter(b => b.status === 'emprestado').length;
+                const reservados = books.filter(b => b.status === 'reservado').length;
+                const ativos = loans.filter(l => !l.dataDevolucao).length;
+                const devolvidos = loans.filter(l => l.dataDevolucao).length;
+                const totalMultas = loans.reduce((s, l) => s + (l.multa || 0), 0);
+                
+                csv = metadata.join('\n') + '\n';
+                
+                // Seção 1: Visão Geral
+                csv += '"VISÃO GERAL DA BIBLIOTECA"\n';
+                csv += '"Indicador";"Valor"\n';
+                csv += `"Total de Livros";"${books.length}"\n`;
+                csv += `"Livros Disponíveis";"${disponiveis}"\n`;
+                csv += `"Livros Emprestados";"${emprestados}"\n`;
+                csv += `"Livros Reservados";"${reservados}"\n`;
+                csv += `"Total de Utilizadores";"${users.length}"\n`;
+                csv += `"Total de Estudantes";"${estudantes.length}"\n`;
+                
+                // Seção 2: Empréstimos
+                csv += '\n"INDICADORES DE EMPRÉSTIMOS"\n';
+                csv += '"Indicador";"Valor"\n';
+                csv += `"Total de Empréstimos";"${loans.length}"\n`;
+                csv += `"Empréstimos Activos";"${ativos}"\n`;
+                csv += `"Empréstimos Devolvidos";"${devolvidos}"\n`;
+                csv += `"Taxa de Devolução";"${loans.length > 0 ? ((devolvidos/loans.length)*100).toFixed(1) : 0}%"`;
+                
+                // Seção 3: Financeiro
+                csv += '\n"INDICADORES FINANCEIROS"\n';
+                csv += '"Indicador";"Valor"\n';
+                csv += `"Total de Multas (Kz)";"${totalMultas}"\n`;
+                csv += `"Média de Multa por Empréstimo (Kz)";"${loans.length > 0 ? (totalMultas/loans.length).toFixed(2) : 0}"`;
+                
+                // Seção 4: Categorias
+                const categorias = {};
+                books.forEach(b => {
+                    categorias[b.categoria] = (categorias[b.categoria] || 0) + 1;
+                });
+                
+                csv += '\n"DISTRIBUIÇÃO POR CATEGORIA"\n';
+                csv += '"Categoria";"Quantidade";"Percentagem"\n';
+                Object.entries(categorias)
+                    .sort((a, b) => b[1] - a[1])
+                    .forEach(([cat, qtd]) => {
+                        csv += `"${escapeCSV(cat)}";"${qtd}";"${((qtd/books.length)*100).toFixed(1)}%"`;
+                        csv += '\n';
+                    });
+                
+                // Seção 5: Top Leitores
+                const leitores = {};
+                loans.forEach(l => {
+                    const nome = l.userName || 'Desconhecido';
+                    leitores[nome] = (leitores[nome] || 0) + 1;
+                });
+                
+                const topLeitores = Object.entries(leitores)
+                    .sort((a, b) => b[1] - a[1])
+                    .slice(0, 10);
+                
+                if (topLeitores.length > 0) {
+                    csv += '\n"TOP 10 LEITORES"\n';
+                    csv += '"Posição";"Nome";"Total de Empréstimos"\n';
+                    topLeitores.forEach(([nome, qtd], index) => {
+                        csv += `"${index + 1}";"${escapeCSV(nome)}";"${qtd}"\n`;
+                    });
+                }
+            }
+            
+            downloadFile(csv, filename, 'text/csv;charset=utf-8');
+            showToast(`Relatório "${type}" exportado com sucesso!`, 'success');
+        }
+        
+        function exportReportPDF() {
+            showToast('A abrir janela de impressão... Use "Guardar como PDF" no diálogo de impressão.', 'info');
+            setTimeout(() => window.print(), 500);
+        }
+        
+        function downloadFile(content, filename, mimeType) {
+            // Adiciona BOM (Byte Order Mark) para garantir que o Excel reconheça UTF-8
+            const BOM = '\uFEFF';
+            const blob = new Blob([BOM + content], { type: mimeType });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            
+            // Limpeza
+            setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 100);
         }
 
         function solicitarEmprestimo(bookId) {
@@ -663,7 +1190,7 @@
             renderLoansSection(); updateNotifBadge();
         }
 
-        // ========== MODAIS (mantidos) ==========
+        // ========== MODAIS ==========
         function openBookModal(bookId = null) {
             const books = getBooks(), book = bookId ? books.find(b => b.id === bookId) : null;
             const m = document.createElement('div'); m.className = 'modal-overlay';
